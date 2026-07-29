@@ -1,5 +1,6 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { useMemo, useState } from "react";
 
 const productGroups = [
@@ -46,6 +47,9 @@ const offices = [
 ];
 
 export default function Home() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  const assetPath = (fileName: string) =>
+    `${basePath}/assets/${fileName}`;
   const [catalogView, setCatalogView] = useState<"products" | "brands">("products");
   const [coverageQuery, setCoverageQuery] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -89,7 +93,15 @@ export default function Home() {
         </nav>
       </header>
 
-      <section className="hero" id="top">
+      <section
+        className="hero"
+        id="top"
+        style={
+          {
+            "--hero-image": `url("${assetPath("bridge-hero.png")}")`,
+          } as CSSProperties
+        }
+      >
         <div className="hero-shade" />
         <div className="hero-content">
           <p className="eyebrow">Professional marine electronics</p>
@@ -208,7 +220,7 @@ export default function Home() {
         <div className="coverage-layout">
           <div className="map-card">
             <div className="map-viewport" role="img" aria-label="Concept map showing NAVTEAM offices and worldwide service coverage">
-              <img src="/assets/map-source.png" alt="" />
+              <img src={assetPath("map-source.png")} alt="" />
             </div>
             <div className="map-legend">
               <span><i className="office-dot" /> NAVTEAM office</span>
@@ -248,7 +260,7 @@ export default function Home() {
 
       <section className="service-section" id="service">
         <div className="service-photo">
-          <img src="/assets/service-engineer.png" alt="NAVTEAM engineer servicing marine electronics onboard a vessel" />
+          <img src={assetPath("service-engineer.png")} alt="NAVTEAM engineer servicing marine electronics onboard a vessel" />
           <div>
             <p>24/7 remote and on-site support</p>
             <span>One service request. One coordinating team.</span>
@@ -279,7 +291,7 @@ export default function Home() {
         </div>
         <div className="story-grid">
           <article className="story story-image">
-            <img src="/assets/jrc-radar.jpg" alt="Marine radar display and controls" />
+            <img src={assetPath("jrc-radar.jpg")} alt="Marine radar display and controls" />
             <div>
               <span>Technology</span>
               <h3>Preparing bridge systems for resilient positioning</h3>

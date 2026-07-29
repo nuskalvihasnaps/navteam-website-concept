@@ -31,6 +31,8 @@ dev.out.log
 dev.err.log
 install.out.log
 install.err.log
+site-package.tar.gz
+out/
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)

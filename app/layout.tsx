@@ -1,37 +1,36 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import "./globals.css";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host =
-    requestHeaders.get("x-forwarded-host") ??
-    requestHeaders.get("host") ??
-    "localhost:3000";
-  const protocol = host.includes("localhost") ? "http" : "https";
-  const origin = `${protocol}://${host}`;
-  const title = "NAVTEAM | Professional Marine Electronics";
-  const description =
-    "NAVTEAM supplies, integrates and supports professional marine electronics worldwide.";
+const siteUrl =
+  "https://nuskalvihasnaps.github.io/navteam-website-concept/";
+const title = "NAVTEAM | Professional Marine Electronics";
+const description =
+  "NAVTEAM supplies, integrates and supports professional marine electronics worldwide.";
 
-  return {
-    metadataBase: new URL(origin),
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  openGraph: {
     title,
     description,
-    openGraph: {
-      title,
-      description,
-      type: "website",
-      images: [{ url: `${origin}/og.png`, width: 1792, height: 1024 }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [`${origin}/og.png`],
-    },
-  };
-}
+    type: "website",
+    url: siteUrl,
+    images: [
+      {
+        url: `${siteUrl}og.png`,
+        width: 1792,
+        height: 1024,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [`${siteUrl}og.png`],
+  },
+};
 
 export default function RootLayout({
   children,
