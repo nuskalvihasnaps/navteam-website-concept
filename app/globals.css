@@ -178,6 +178,12 @@ h1 {
   letter-spacing: -0.055em;
 }
 
+.hero-title-line {
+  display: block;
+  white-space: nowrap;
+  font-size: clamp(34px, 5.6vw, 82px);
+}
+
 .hero-copy {
   max-width: 670px;
   margin-bottom: 34px;
@@ -990,6 +996,10 @@ footer > div {
 
   h1 {
     font-size: 50px;
+  }
+
+  .hero-title-line {
+    font-size: clamp(32px, 9.5vw, 42px);
   }
 
   .hero-status {

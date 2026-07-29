@@ -93,7 +93,10 @@ export default function Home() {
         <div className="hero-shade" />
         <div className="hero-content">
           <p className="eyebrow">Professional marine electronics</p>
-          <h1>Supply. Integrate.<br />Support worldwide.</h1>
+          <h1>
+            Supply Integrate
+            <span className="hero-title-line">Worldwide Support.</span>
+          </h1>
           <p className="hero-copy">
             Navigation, communication and safety systems for commercial vessels,
             backed by technicians and service partners in the world&apos;s major ports.
