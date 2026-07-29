@@ -327,6 +327,12 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--cyan); }
 }
 .page-hero-copy > p { color: rgba(255,255,255,.73); font-size: 18px; line-height: 1.65; }
 .page-hero-copy > span { display: block; padding-top: 20px; color: var(--cyan); border-top: 1px solid rgba(255,255,255,.16); font-size: 12px; font-weight: 700; }
+.page-hero.compact {
+  min-height: 300px;
+  padding-top: 58px;
+  padding-bottom: 58px;
+}
+.page-hero.compact h1 { font-size: clamp(42px, 4.8vw, 68px); }
 
 .catalog-explorer { margin-top: 20px; }
 .catalog-toolbar { display: flex; justify-content: space-between; gap: 20px; margin-bottom: 30px; }
@@ -376,7 +382,15 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--cyan); }
 
 .service-page-layout { gap: 7vw; align-items: center; }
 .service-page-image { min-height: 720px; }
-.service-list { margin-top: 38px; border-top: 1px solid var(--line); }
+.service-list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(5, auto);
+  column-gap: 34px;
+  margin-top: 38px;
+  border-top: 1px solid var(--line);
+}
 .service-list > div { display: grid; grid-template-columns: 45px 1fr; gap: 15px; padding: 16px 0; border-bottom: 1px solid var(--line); }
 .service-list span { color: var(--orange); font-size: 11px; }
 .service-list strong { font-size: 15px; }
@@ -489,11 +503,18 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--cyan); }
     grid-template-columns: 1fr;
   }
   .page-hero { min-height: 480px; padding: 70px 7vw; align-items: start; }
+  .page-hero.compact { min-height: 390px; padding: 55px 7vw; }
   .page-hero h1 { font-size: 49px; }
   .preview-grid, .product-grid, .feature-grid, .office-grid, .job-grid,
   .story-grid, .story-grid.full { grid-template-columns: 1fr; }
   .story-grid .story:first-child { grid-column: auto; }
   .home-service-image, .service-page-image { min-height: 420px; }
+  .service-list {
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    column-gap: 0;
+  }
   .home-service-copy { padding: 70px 7vw; }
   .catalog-toolbar { flex-direction: column; }
   .catalog-search input { width: 100%; }

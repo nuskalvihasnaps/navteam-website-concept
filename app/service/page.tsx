@@ -18,14 +18,15 @@ export default function ServicePage() {
         title="The right expertise, at the right port."
         copy="NAVTEAM coordinates remote and onboard support for navigation, communication and safety systems—from annual surveys to complete bridge retrofits."
         detail="24/7 coordination · Offices in Denmark, Poland and Malaysia"
+        compact
       />
 
       <section className="page-section">
         <div className="service-page-layout">
           <div className="service-page-image">
             <img
-              src={assetPath("service-engineer.png")}
-              alt="Marine electronics engineer working onboard"
+              src={assetPath("service-bridge-work.jpg")}
+              alt="NAVTEAM marine electronics engineer working on bridge cabling onboard"
             />
           </div>
           <div>
