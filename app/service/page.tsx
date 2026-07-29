@@ -22,6 +22,10 @@ export default function ServicePage() {
       />
 
       <section className="page-section">
+        <div className="service-section-heading">
+          <p className="eyebrow dark">Onboard capability</p>
+          <h2>Service throughout the vessel lifecycle.</h2>
+        </div>
         <div className="service-page-layout">
           <div className="service-page-image">
             <img
@@ -29,17 +33,13 @@ export default function ServicePage() {
               alt="NAVTEAM marine electronics engineer working on bridge cabling onboard"
             />
           </div>
-          <div>
-            <p className="eyebrow dark">Onboard capability</p>
-            <h2>Service throughout the vessel lifecycle.</h2>
-            <div className="service-list">
-              {services.map((service, index) => (
-                <div key={service}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <strong>{service}</strong>
-                </div>
-              ))}
-            </div>
+          <div className="service-list">
+            {services.map((service, index) => (
+              <div key={service}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <strong>{service}</strong>
+              </div>
+            ))}
           </div>
         </div>
       </section>

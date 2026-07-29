@@ -198,7 +198,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--cyan); }
   align-items: end;
   margin-bottom: 52px;
 }
-.section-heading h2, .split-layout h2, .service-page-layout h2, .contact-panel h2 {
+.section-heading h2, .split-layout h2, .service-section-heading h2, .contact-panel h2 {
   margin-bottom: 0;
   font-size: clamp(34px, 4vw, 58px);
   line-height: 1.05;
@@ -380,15 +380,22 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--cyan); }
 .distributor-banner { grid-template-columns: 1.1fr .7fr auto; background: var(--blue); }
 .distributor-banner h2 { font-size: clamp(32px,3.5vw,52px); }
 
-.service-page-layout { gap: 7vw; align-items: center; }
-.service-page-image { min-height: 720px; }
+.service-section-heading {
+  max-width: 780px;
+  margin-bottom: 46px;
+}
+.service-page-layout { gap: 7vw; align-items: start; }
+.service-page-image {
+  min-height: 0;
+  aspect-ratio: 1;
+}
 .service-list {
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: repeat(5, auto);
   column-gap: 34px;
-  margin-top: 38px;
+  margin-top: 0;
   border-top: 1px solid var(--line);
 }
 .service-list > div { display: grid; grid-template-columns: 45px 1fr; gap: 15px; padding: 16px 0; border-bottom: 1px solid var(--line); }
@@ -508,7 +515,8 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--cyan); }
   .preview-grid, .product-grid, .feature-grid, .office-grid, .job-grid,
   .story-grid, .story-grid.full { grid-template-columns: 1fr; }
   .story-grid .story:first-child { grid-column: auto; }
-  .home-service-image, .service-page-image { min-height: 420px; }
+  .home-service-image { min-height: 420px; }
+  .service-page-image { min-height: 0; }
   .service-list {
     grid-auto-flow: row;
     grid-template-columns: 1fr;
