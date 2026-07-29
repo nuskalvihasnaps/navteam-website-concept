@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CoverageExplorer } from "../components/CoverageExplorer";
-import { PageHero } from "../components/PageHero";
 import { assetPath, services } from "../lib/site";
 
 export const metadata: Metadata = {
@@ -13,13 +12,10 @@ export const metadata: Metadata = {
 export default function ServicePage() {
   return (
     <>
-      <PageHero
-        label="Service & support"
-        title="The right expertise, at the right port."
-        copy="NAVTEAM coordinates remote and onboard support for navigation, communication and safety systems—from annual surveys to complete bridge retrofits."
-        detail="24/7 coordination · Offices in Denmark, Poland and Malaysia"
-        compact
-      />
+      <div className="service-subheader">
+        <strong>Service &amp; Support</strong>
+        <span>24/7 coordination · Offices in Denmark, Poland and Malaysia</span>
+      </div>
 
       <section className="page-section service-intro">
         <div className="service-page-layout">
@@ -39,6 +35,11 @@ export default function ServicePage() {
                   <strong>{service}</strong>
                 </div>
               ))}
+            </div>
+            <div className="service-contact-action">
+              <Link className="button primary" href="/contact">
+                Contact our service team
+              </Link>
             </div>
           </div>
         </div>
