@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { assetPath, serviceCapabilities } from "../lib/site";
+import { ContactTrigger } from "./ContactModal";
 
 type CoverageMarker = {
   id: string;
@@ -204,17 +205,22 @@ export function ServiceMapHero() {
         aria-labelledby="service-details-title"
       >
         <div className="service-details-heading">
-          <div>
+          <div className="service-details-title">
             <p className="eyebrow dark">Onboard capability</p>
-            <h2 id="service-details-title">
-              Service throughout the vessel lifecycle.
-            </h2>
+            <h2 id="service-details-title">Service &amp; Coordination.</h2>
+            <p>
+              From annual surveys and equipment repairs to complete bridge
+              retrofits, NAVTEAM coordinates the right expertise for the vessel
+              and port.
+            </p>
           </div>
-          <p>
-            From annual surveys and individual equipment repairs to complete
-            bridge retrofits, NAVTEAM coordinates the right expertise for the
-            vessel and port.
-          </p>
+          <div className="service-details-action">
+            <ContactTrigger
+              className="service-details-contact"
+              label="Contact NAVTEAM"
+              source="Service & Support – Service & Coordination"
+            />
+          </div>
         </div>
 
         <div className="service-detail-grid">

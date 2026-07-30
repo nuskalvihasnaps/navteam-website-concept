@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ContactModalProvider } from "./components/ContactModal";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
 import "./globals.css";
@@ -40,9 +41,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <SiteHeader />
-        <main>{children}</main>
-        <SiteFooter />
+        <ContactModalProvider>
+          <SiteHeader />
+          <main>{children}</main>
+          <SiteFooter />
+        </ContactModalProvider>
       </body>
     </html>
   );
