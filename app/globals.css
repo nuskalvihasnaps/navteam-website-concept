@@ -607,8 +607,8 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 .service-map-heading {
   position: absolute;
   z-index: 2;
-  top: 6%;
-  left: 5%;
+  top: clamp(28px, 4vh, 48px);
+  left: clamp(28px, 3.4vw, 52px);
   color: var(--white);
   font-size: clamp(20px, 2vw, 30px);
   letter-spacing: -.025em;
@@ -735,8 +735,8 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 .service-map-legend {
   position: absolute;
   z-index: 2;
-  left: 5%;
-  bottom: 5%;
+  left: clamp(28px, 3.4vw, 52px);
+  bottom: clamp(28px, 4vh, 48px);
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
