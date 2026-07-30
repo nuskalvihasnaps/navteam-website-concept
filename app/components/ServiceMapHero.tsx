@@ -207,16 +207,24 @@ export function ServiceMapHero() {
             if (event.key === "Escape") setActiveMarker(null);
           }}
         >
-          <div className="service-map-heading" aria-hidden="true">
-            <span>Global network</span>
-            <strong>Worldwide coverage</strong>
-          </div>
-
           <div className="service-map-graphic">
             <img
               src={assetPath("world-map-clean.png")}
               alt="World map showing NAVTEAM offices and illustrative service partner coverage"
             />
+            <strong className="service-map-heading" aria-hidden="true">
+              Worldwide coverage
+            </strong>
+
+            <div className="service-map-legend">
+              <span>
+                <i className="office-dot" /> NAVTEAM office
+              </span>
+              <span>
+                <i className="partner-dot" /> Service partner / port
+              </span>
+            </div>
+
             {coverageMarkers.map((marker) => {
               const isActive = activeMarker === marker.id;
               return (
@@ -277,15 +285,6 @@ export function ServiceMapHero() {
                 </div>
               );
             })}
-          </div>
-
-          <div className="service-map-legend">
-            <span>
-              <i className="office-dot" /> NAVTEAM office
-            </span>
-            <span>
-              <i className="partner-dot" /> Service partner / port
-            </span>
           </div>
         </div>
       </section>

@@ -602,33 +602,22 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 54% 48%, rgba(19, 79, 109, .32), transparent 45%),
-    var(--black);
+  background: #071e35;
 }
 .service-map-heading {
   position: absolute;
   z-index: 2;
-  top: 28px;
-  left: 4vw;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.service-map-heading span {
-  color: var(--blue-light);
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-}
-.service-map-heading strong {
+  top: 6%;
+  left: 5%;
+  color: var(--white);
   font-size: clamp(20px, 2vw, 30px);
   letter-spacing: -.025em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .35);
 }
 .service-map-graphic {
   position: relative;
-  width: min(94%, calc((100svh - 200px) * 1.999));
+  width: min(104%, calc((100svh - 88px) * 1.999));
+  flex: none;
   aspect-ratio: 1773 / 887;
 }
 .service-map-graphic > img {
@@ -746,8 +735,8 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 .service-map-legend {
   position: absolute;
   z-index: 2;
-  left: 4vw;
-  bottom: 25px;
+  left: 5%;
+  bottom: 5%;
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
@@ -1155,7 +1144,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   .service-map-hero { grid-template-columns: minmax(330px, 38vw) minmax(0, 1fr); }
   .service-map-sidebar { padding-right: 28px; padding-left: 28px; }
   .service-map-graphic {
-    width: min(96%, calc((100svh - 210px) * 1.999));
+    width: min(104%, calc((100svh - 78px) * 1.999));
   }
 }
 
@@ -1173,7 +1162,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
     min-height: min(72svh, 620px);
     padding: 80px 0 78px;
   }
-  .service-map-graphic { width: 96%; }
+  .service-map-graphic { width: 104%; }
   .service-map-heading { top: 25px; left: 5vw; }
   .service-map-legend { left: 5vw; right: 5vw; bottom: 20px; }
   .service-details {
