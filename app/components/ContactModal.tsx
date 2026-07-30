@@ -228,7 +228,6 @@ function ContactForm({
     <>
       <div className="contact-modal-header">
         <div>
-          <p className="eyebrow">Contact NAVTEAM</p>
           <h2 id="contact-modal-title">How can we help?</h2>
           <p>
             Share the essential details and we will connect you with the right
@@ -241,7 +240,9 @@ function ContactForm({
           aria-label="Close contact form"
           onClick={closeContact}
         >
-          ×
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
         </button>
       </div>
 

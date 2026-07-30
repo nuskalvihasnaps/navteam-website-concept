@@ -930,6 +930,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   overflow-y: auto;
   color: var(--ink);
   background: var(--white);
+  border: 1px solid var(--line);
   border-radius: 5px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, .38);
   animation: contact-modal-in 220ms ease-out;
@@ -940,12 +941,13 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   grid-template-columns: 1fr auto;
   gap: 30px;
   padding: 34px 42px 28px;
-  color: var(--white);
+  color: var(--ink);
+  border-top: 4px solid var(--brand-red);
+  border-bottom: 1px solid var(--line);
   background:
-    radial-gradient(circle at 10% 0%, rgba(105, 169, 196, .18), transparent 32%),
-    var(--charcoal);
+    radial-gradient(circle at 10% 0%, rgba(105, 169, 196, .12), transparent 34%),
+    linear-gradient(135deg, var(--white), var(--surface-alt));
 }
-.contact-modal-header .eyebrow { margin-bottom: 8px; }
 .contact-modal-header h2 {
   margin-bottom: 8px;
   font-size: clamp(34px, 4vw, 52px);
@@ -955,7 +957,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 .contact-modal-header > div > p:last-child {
   max-width: 520px;
   margin-bottom: 0;
-  color: rgba(255, 255, 255, .67);
+  color: var(--muted);
   font-size: 14px;
   line-height: 1.5;
 }
@@ -965,22 +967,30 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   display: grid;
   place-items: center;
   padding: 0;
-  color: var(--white);
-  border: 1px solid rgba(255, 255, 255, .25);
+  color: var(--ink);
+  border: 1px solid var(--line);
   border-radius: 50%;
-  background: transparent;
-  font-size: 27px;
-  line-height: 1;
+  background: var(--white);
   cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+.contact-modal-close svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
 }
 .contact-modal-close:hover,
 .contact-modal-close:focus-visible {
-  color: var(--charcoal);
-  background: var(--blue-light);
-  border-color: var(--blue-light);
+  color: var(--white);
+  background: var(--brand-red);
+  border-color: var(--brand-red);
 }
 .contact-modal-close:focus-visible {
-  outline: 2px solid var(--white);
+  outline: 2px solid var(--blue);
   outline-offset: 3px;
 }
 .contact-modal-form { padding: 30px 42px 36px; }
