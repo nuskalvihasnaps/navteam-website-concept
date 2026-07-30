@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { assetPath } from "../lib/site";
 
 const navigation = [
   { href: "/products", label: "Products & Brands" },
@@ -36,9 +37,17 @@ export function SiteHeader() {
 
   return (
     <header className="site-header">
-      <Link className="brand" href="/" onClick={() => setMenuOpen(false)}>
-        <strong>NAVTEAM</strong>
-        <span>Professional Marine Electronics</span>
+      <Link
+        className="header-brand"
+        href="/"
+        onClick={() => setMenuOpen(false)}
+      >
+        <span className="header-logo-crop">
+          <img
+            src={assetPath("navteam-logo.png")}
+            alt="NAVTEAM – Professional Marine Electronics"
+          />
+        </span>
       </Link>
 
       <button
