@@ -58,6 +58,9 @@ export function ServiceMapHero() {
   const [activeMarker, setActiveMarker] = useState<string | null>(null);
   const [selectedService, setSelectedService] = useState<string | null>(null);
   const serviceDetailsRef = useRef<HTMLElement>(null);
+  const selectedCapability = serviceCapabilities.find(
+    (service) => service.id === selectedService,
+  );
 
   function selectService(serviceId: string, scrollToDetails: boolean) {
     setSelectedService(serviceId);
@@ -207,18 +210,18 @@ export function ServiceMapHero() {
         <div className="service-details-heading">
           <div className="service-details-title">
             <p className="eyebrow dark">Onboard capability</p>
-            <h2 id="service-details-title">Service &amp; Coordination.</h2>
-            <p>
+            <h2 id="service-details-title">
               From annual surveys and equipment repairs to complete bridge
               retrofits, NAVTEAM coordinates the right expertise for the vessel
               and port.
-            </p>
+            </h2>
           </div>
           <div className="service-details-action">
             <ContactTrigger
               className="service-details-contact"
               label="Contact NAVTEAM"
-              source="Service & Support – Service & Coordination"
+              source="Service & Support – Onboard capability"
+              defaultInquiry={selectedCapability?.title}
             />
           </div>
         </div>
