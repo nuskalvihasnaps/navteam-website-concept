@@ -167,11 +167,10 @@ export function ServiceMapHero() {
       <section className="service-map-hero" aria-labelledby="service-map-title">
         <aside className="service-map-sidebar">
           <div className="service-map-intro">
-            <p className="eyebrow">Worldwide service coordination</p>
             <h1 id="service-map-title">Service &amp; Support</h1>
             <p>
-              Remote and onboard expertise, coordinated 24/7 through NAVTEAM
-              offices and trusted partners in major ports.
+              Remote and onboard assistance, coordinated 24/7 through NAVTEAM
+              offices and trusted partners in ports all over the globe.
             </p>
           </div>
 

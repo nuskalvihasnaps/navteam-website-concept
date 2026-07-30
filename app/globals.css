@@ -502,10 +502,6 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
     linear-gradient(145deg, var(--white), var(--surface-alt));
   box-shadow: 16px 0 34px rgba(11, 13, 15, .09);
 }
-.service-map-intro .eyebrow {
-  margin-bottom: 10px;
-  color: var(--blue);
-}
 .service-map-intro h1 {
   max-width: none;
   margin-bottom: 13px;
@@ -527,12 +523,12 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 }
 .service-capability-list > button {
   width: 100%;
-  min-height: 36px;
+  min-height: 46px;
   display: grid;
   grid-template-columns: 34px 1fr 18px;
   gap: 9px;
   align-items: center;
-  padding: clamp(6px, .9vh, 9px) 0;
+  padding: clamp(9px, 1.1vh, 12px) 0;
   color: var(--ink);
   text-align: left;
   border-bottom: 1px solid var(--line);
@@ -1156,7 +1152,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
     box-shadow: none;
   }
   .service-map-intro h1 { font-size: 52px; }
-  .service-capability-list > button { min-height: 43px; padding: 10px 0; }
+  .service-capability-list > button { min-height: 48px; padding: 11px 0; }
   .service-map-cta { margin-top: 26px; }
   .service-map-stage {
     min-height: min(72svh, 620px);
@@ -1279,11 +1275,10 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 
 @media (max-height: 760px) and (min-width: 821px) {
   .service-map-sidebar { padding-top: 22px; padding-bottom: 22px; }
-  .service-map-intro .eyebrow { margin-bottom: 6px; }
   .service-map-intro h1 { margin-bottom: 8px; font-size: 39px; }
   .service-map-intro > p:last-child { margin-bottom: 12px; font-size: 12px; }
   .service-capability-list { margin-bottom: 12px; }
-  .service-capability-list > button { min-height: 31px; padding: 5px 0; }
+  .service-capability-list > button { min-height: 35px; padding: 6px 0; }
   .service-map-cta { min-height: 50px; }
   .service-details { padding-top: 30px; padding-bottom: 30px; }
   .service-details-heading { margin-bottom: 18px; }
