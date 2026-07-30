@@ -32,18 +32,80 @@ export const brands = [
   "Raymarine",
 ];
 
-export const services = [
-  "GMDSS & VDR annual surveys",
-  "Full navigation bridge retrofit",
-  "Gyro overhaul & installation",
-  "Radar service & installation",
-  "ECDIS service & installation",
-  "GPS & GPS compass",
-  "Anti-jamming / spoofing",
-  "Echo sounder & speed log",
-  "Magnetic compass adjustment",
-  "Remote and on-site support",
+export const serviceCapabilities = [
+  {
+    id: "gmdss-vdr-annuals",
+    title: "GMDSS & VDR annual surveys",
+    shortLabel: "GMDSS & VDR annual surveys",
+    description:
+      "Annual radio and voyage data recorder inspections, functional testing and documentation supporting applicable class and flag requirements.",
+  },
+  {
+    id: "bridge-retrofit",
+    title: "Full navigation bridge retrofit",
+    shortLabel: "Full navigation bridge retrofit",
+    description:
+      "Survey, engineering, equipment supply, installation and commissioning of integrated bridge systems, planned to reduce vessel downtime.",
+  },
+  {
+    id: "gyro",
+    title: "Gyro overhaul & installation",
+    shortLabel: "Gyro overhaul & installation",
+    description:
+      "Diagnosis, overhaul, replacement and commissioning of gyrocompasses and heading distribution systems, including alignment and interface checks.",
+  },
+  {
+    id: "radar",
+    title: "Radar service & installation",
+    shortLabel: "Radar service & installation",
+    description:
+      "Troubleshooting, repair, replacement and commissioning of marine radar systems, including performance checks and sensor integration.",
+  },
+  {
+    id: "ecdis",
+    title: "ECDIS service & installation",
+    shortLabel: "ECDIS service & installation",
+    description:
+      "Installation, hardware and software support, interface verification and commissioning for ECDIS workstations and connected navigation sensors.",
+  },
+  {
+    id: "gps-compass",
+    title: "GPS & GPS compass",
+    shortLabel: "GPS & GPS compass",
+    description:
+      "Service, replacement and installation of positioning and heading equipment, including antennas, cabling and bridge-system integration.",
+  },
+  {
+    id: "anti-jamming",
+    title: "Anti-jamming / spoofing systems",
+    shortLabel: "Anti-jamming / spoofing",
+    description:
+      "Assessment and installation of resilient positioning solutions that help crews detect and manage GNSS interference.",
+  },
+  {
+    id: "echo-sounder-speed-log",
+    title: "Echo sounder & speed log",
+    shortLabel: "Echo sounder & speed log",
+    description:
+      "Installation, repair and calibration of depth and speed measurement systems, transducers, cabling and bridge displays.",
+  },
+  {
+    id: "magnetic-compass",
+    title: "Magnetic compass adjustment & service",
+    shortLabel: "Magnetic compass adjustment",
+    description:
+      "Onboard compass adjustment, deviation checks and service, with supporting documentation prepared where applicable.",
+  },
+  {
+    id: "remote-onsite-support",
+    title: "Remote and on-site support",
+    shortLabel: "Remote and on-site support",
+    description:
+      "Fast remote diagnosis and coordinated attendance through NAVTEAM offices and service partners in major ports worldwide.",
+  },
 ];
+
+export const services = serviceCapabilities.map((service) => service.shortLabel);
 
 export const offices = [
   { city: "Svendborg", country: "Denmark", region: "Europe" },

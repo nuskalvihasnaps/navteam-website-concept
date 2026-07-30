@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { assetPath, services } from "../lib/site";
+import { useRef, useState } from "react";
+import { assetPath, serviceCapabilities } from "../lib/site";
 
 type CoverageMarker = {
   id: string;
@@ -55,116 +55,189 @@ const coverageMarkers: CoverageMarker[] = [
 
 export function ServiceMapHero() {
   const [activeMarker, setActiveMarker] = useState<string | null>(null);
+  const [selectedService, setSelectedService] = useState<string | null>(null);
+  const serviceDetailsRef = useRef<HTMLElement>(null);
+
+  function selectService(serviceId: string, scrollToDetails: boolean) {
+    setSelectedService(serviceId);
+
+    if (scrollToDetails) {
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      requestAnimationFrame(() => {
+        serviceDetailsRef.current?.scrollIntoView({
+          behavior: prefersReducedMotion ? "auto" : "smooth",
+          block: "start",
+        });
+      });
+    }
+  }
 
   return (
-    <section className="service-map-hero" aria-labelledby="service-map-title">
-      <aside className="service-map-sidebar">
-        <div className="service-map-intro">
-          <p className="eyebrow">Worldwide service coordination</p>
-          <h1 id="service-map-title">Service &amp; Support</h1>
+    <>
+      <section className="service-map-hero" aria-labelledby="service-map-title">
+        <aside className="service-map-sidebar">
+          <div className="service-map-intro">
+            <p className="eyebrow">Worldwide service coordination</p>
+            <h1 id="service-map-title">Service &amp; Support</h1>
+            <p>
+              Remote and onboard expertise, coordinated 24/7 through NAVTEAM
+              offices and trusted partners in major ports.
+            </p>
+          </div>
+
+          <div
+            className="service-capability-list"
+            aria-label="Service capabilities"
+          >
+            {serviceCapabilities.map((service, index) => (
+              <button
+                type="button"
+                key={service.id}
+                aria-controls="service-details"
+                aria-pressed={selectedService === service.id}
+                onClick={() => selectService(service.id, true)}
+              >
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <strong>{service.shortLabel}</strong>
+                <i aria-hidden="true">↓</i>
+              </button>
+            ))}
+          </div>
+
+          <Link className="service-map-cta" href="/contact">
+            Contact our service team
+            <span aria-hidden="true">↗</span>
+          </Link>
+        </aside>
+
+        <div
+          className="service-map-stage"
+          onClick={() => setActiveMarker(null)}
+          onKeyDown={(event) => {
+            if (event.key === "Escape") setActiveMarker(null);
+          }}
+        >
+          <div className="service-map-heading" aria-hidden="true">
+            <span>Global network</span>
+            <strong>Worldwide coverage</strong>
+          </div>
+
+          <div className="service-map-graphic">
+            <img
+              src={assetPath("world-map-clean.png")}
+              alt="World map showing NAVTEAM offices and illustrative service partner coverage"
+            />
+            {coverageMarkers.map((marker) => {
+              const isActive = activeMarker === marker.id;
+              return (
+                <div
+                  className={`coverage-marker-wrap ${marker.type}`}
+                  key={marker.id}
+                  style={{ left: `${marker.x}%`, top: `${marker.y}%` }}
+                  onBlur={(event) => {
+                    if (!event.currentTarget.contains(event.relatedTarget)) {
+                      setActiveMarker(null);
+                    }
+                  }}
+                  onMouseEnter={() => setActiveMarker(marker.id)}
+                  onMouseLeave={() => setActiveMarker(null)}
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  <button
+                    className="coverage-marker"
+                    type="button"
+                    aria-expanded={isActive}
+                    aria-label={
+                      marker.type === "office"
+                        ? `NAVTEAM office: ${marker.label}, ${marker.detail}`
+                        : `Illustrative service partner coverage: ${marker.label}`
+                    }
+                    onClick={() =>
+                      setActiveMarker((current) =>
+                        current === marker.id ? null : marker.id,
+                      )
+                    }
+                    onFocus={() => setActiveMarker(marker.id)}
+                  >
+                    <span className="marker-pulse" />
+                  </button>
+
+                  {isActive ? (
+                    <div className="coverage-tooltip">
+                      <span>
+                        {marker.type === "office"
+                          ? "NAVTEAM office"
+                          : "Service partner coverage"}
+                      </span>
+                      <strong>{marker.label}</strong>
+                      {marker.detail ? <small>{marker.detail}</small> : null}
+                      {marker.type === "office" ? (
+                        <Link href="/contact">Contact this office ↗</Link>
+                      ) : (
+                        <small>Illustrative coverage point</small>
+                      )}
+                    </div>
+                  ) : null}
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="service-map-legend">
+            <span>
+              <i className="office-dot" /> NAVTEAM office
+            </span>
+            <span>
+              <i className="partner-dot" /> Service partner / port
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="service-details"
+        id="service-details"
+        ref={serviceDetailsRef}
+        aria-labelledby="service-details-title"
+      >
+        <div className="service-details-heading">
+          <div>
+            <p className="eyebrow dark">Onboard capability</p>
+            <h2 id="service-details-title">
+              Service throughout the vessel lifecycle.
+            </h2>
+          </div>
           <p>
-            Remote and onboard expertise, coordinated 24/7 through NAVTEAM
-            offices and trusted partners in major ports.
+            From annual surveys and individual equipment repairs to complete
+            bridge retrofits, NAVTEAM coordinates the right expertise for the
+            vessel and port.
           </p>
         </div>
 
-        <div className="service-capability-list" aria-label="Service capabilities">
-          {services.map((service, index) => (
-            <div key={service}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <strong>{service}</strong>
-            </div>
-          ))}
-        </div>
-
-        <Link className="service-map-cta" href="/contact">
-          Contact our service team
-          <span aria-hidden="true">↗</span>
-        </Link>
-      </aside>
-
-      <div
-        className="service-map-stage"
-        onClick={() => setActiveMarker(null)}
-        onKeyDown={(event) => {
-          if (event.key === "Escape") setActiveMarker(null);
-        }}
-      >
-        <div className="service-map-heading" aria-hidden="true">
-          <span>Global network</span>
-          <strong>Worldwide coverage</strong>
-        </div>
-
-        <div className="service-map-graphic">
-          <img
-            src={assetPath("world-map-clean.png")}
-            alt="World map showing NAVTEAM offices and illustrative service partner coverage"
-          />
-          {coverageMarkers.map((marker) => {
-            const isActive = activeMarker === marker.id;
+        <div className="service-detail-grid">
+          {serviceCapabilities.map((service, index) => {
+            const isSelected = selectedService === service.id;
             return (
-              <div
-                className={`coverage-marker-wrap ${marker.type}`}
-                key={marker.id}
-                style={{ left: `${marker.x}%`, top: `${marker.y}%` }}
-                onBlur={(event) => {
-                  if (!event.currentTarget.contains(event.relatedTarget)) {
-                    setActiveMarker(null);
-                  }
-                }}
-                onMouseEnter={() => setActiveMarker(marker.id)}
-                onMouseLeave={() => setActiveMarker(null)}
-                onClick={(event) => event.stopPropagation()}
+              <button
+                className={isSelected ? "service-detail-card selected" : "service-detail-card"}
+                type="button"
+                key={service.id}
+                aria-pressed={isSelected}
+                onClick={() => selectService(service.id, false)}
               >
-                <button
-                  className="coverage-marker"
-                  type="button"
-                  aria-expanded={isActive}
-                  aria-label={
-                    marker.type === "office"
-                      ? `NAVTEAM office: ${marker.label}, ${marker.detail}`
-                      : `Illustrative service partner coverage: ${marker.label}`
-                  }
-                  onClick={() =>
-                    setActiveMarker((current) =>
-                      current === marker.id ? null : marker.id,
-                    )
-                  }
-                  onFocus={() => setActiveMarker(marker.id)}
-                >
-                  <span className="marker-pulse" />
-                </button>
-
-                {isActive ? (
-                  <div className="coverage-tooltip">
-                    <span>
-                      {marker.type === "office"
-                        ? "NAVTEAM office"
-                        : "Service partner coverage"}
-                    </span>
-                    <strong>{marker.label}</strong>
-                    {marker.detail ? <small>{marker.detail}</small> : null}
-                    {marker.type === "office" ? (
-                      <Link href="/contact">Contact this office ↗</Link>
-                    ) : (
-                      <small>Illustrative coverage point</small>
-                    )}
-                  </div>
-                ) : null}
-              </div>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                </div>
+              </button>
             );
           })}
         </div>
-
-        <div className="service-map-legend">
-          <span>
-            <i className="office-dot" /> NAVTEAM office
-          </span>
-          <span>
-            <i className="partner-dot" /> Service partner / port
-          </span>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
