@@ -18,8 +18,8 @@ const coverageMarkers: CoverageMarker[] = [
   {
     id: "svendborg",
     type: "office",
-    x: 49.5,
-    y: 28,
+    x: 49.3,
+    y: 27.6,
     label: "Svendborg",
     detail: "Denmark",
   },
