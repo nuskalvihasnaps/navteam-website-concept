@@ -18,40 +18,147 @@ const coverageMarkers: CoverageMarker[] = [
   {
     id: "svendborg",
     type: "office",
-    x: 49.4,
-    y: 28.5,
+    x: 48.3,
+    y: 28.4,
     label: "Svendborg",
     detail: "Denmark",
   },
   {
     id: "gdansk",
     type: "office",
-    x: 52.1,
-    y: 29.1,
+    x: 51,
+    y: 29.3,
     label: "Gdansk",
     detail: "Poland",
   },
   {
     id: "tanjung-pelepas",
     type: "office",
-    x: 79.1,
-    y: 62.4,
+    x: 79.6,
+    y: 64,
     label: "Port of Tanjung Pelepas",
     detail: "Malaysia",
   },
-  { id: "partner-north-atlantic", type: "partner", x: 41.7, y: 22.5, label: "North Atlantic" },
-  { id: "partner-north-america", type: "partner", x: 28.2, y: 37.5, label: "North America" },
-  { id: "partner-caribbean", type: "partner", x: 25.3, y: 56.8, label: "Caribbean" },
-  { id: "partner-south-america", type: "partner", x: 31.5, y: 67.2, label: "South America" },
-  { id: "partner-uk", type: "partner", x: 46.8, y: 31.2, label: "Northern Europe" },
-  { id: "partner-benelux", type: "partner", x: 48.1, y: 34.8, label: "Western Europe" },
-  { id: "partner-iberia", type: "partner", x: 45.5, y: 41.2, label: "Southern Europe" },
-  { id: "partner-mediterranean", type: "partner", x: 52.4, y: 42.8, label: "Mediterranean" },
-  { id: "partner-middle-east", type: "partner", x: 62.8, y: 49.2, label: "Middle East" },
-  { id: "partner-india", type: "partner", x: 69.4, y: 54.4, label: "Indian Ocean" },
-  { id: "partner-east-asia", type: "partner", x: 84.4, y: 45.3, label: "East Asia" },
-  { id: "partner-japan", type: "partner", x: 88.1, y: 34.5, label: "Japan" },
-  { id: "partner-south-africa", type: "partner", x: 52.6, y: 79.5, label: "Southern Africa" },
+  {
+    id: "partner-southampton",
+    type: "partner",
+    x: 44.4,
+    y: 31.2,
+    label: "Southampton",
+    detail: "United Kingdom",
+  },
+  {
+    id: "partner-rotterdam",
+    type: "partner",
+    x: 46.4,
+    y: 32.8,
+    label: "Rotterdam",
+    detail: "Netherlands",
+  },
+  {
+    id: "partner-algeciras",
+    type: "partner",
+    x: 43.1,
+    y: 41.2,
+    label: "Algeciras",
+    detail: "Spain",
+  },
+  {
+    id: "partner-marseille",
+    type: "partner",
+    x: 46.8,
+    y: 38.5,
+    label: "Marseille",
+    detail: "France",
+  },
+  {
+    id: "partner-piraeus",
+    type: "partner",
+    x: 52.9,
+    y: 40.2,
+    label: "Piraeus",
+    detail: "Greece",
+  },
+  {
+    id: "partner-new-york",
+    type: "partner",
+    x: 20.2,
+    y: 37.5,
+    label: "New York",
+    detail: "United States",
+  },
+  {
+    id: "partner-houston",
+    type: "partner",
+    x: 13.5,
+    y: 44.3,
+    label: "Houston",
+    detail: "United States",
+  },
+  {
+    id: "partner-los-angeles",
+    type: "partner",
+    x: 6.7,
+    y: 41.5,
+    label: "Los Angeles",
+    detail: "United States",
+  },
+  {
+    id: "partner-colon",
+    type: "partner",
+    x: 18.4,
+    y: 57.5,
+    label: "Colón",
+    detail: "Panama",
+  },
+  {
+    id: "partner-santos",
+    type: "partner",
+    x: 30.3,
+    y: 69,
+    label: "Santos",
+    detail: "Brazil",
+  },
+  {
+    id: "partner-cape-town",
+    type: "partner",
+    x: 51,
+    y: 79.5,
+    label: "Cape Town",
+    detail: "South Africa",
+  },
+  {
+    id: "partner-jebel-ali",
+    type: "partner",
+    x: 62.3,
+    y: 49.2,
+    label: "Jebel Ali",
+    detail: "United Arab Emirates",
+  },
+  {
+    id: "partner-mumbai",
+    type: "partner",
+    x: 68,
+    y: 54.4,
+    label: "Mumbai",
+    detail: "India",
+  },
+  {
+    id: "partner-shanghai",
+    type: "partner",
+    x: 83.3,
+    y: 45.3,
+    label: "Shanghai",
+    detail: "China",
+  },
+  {
+    id: "partner-sydney",
+    type: "partner",
+    x: 92.4,
+    y: 86.5,
+    label: "Sydney",
+    detail: "Australia",
+  },
 ];
 
 export function ServiceMapHero() {
@@ -138,7 +245,13 @@ export function ServiceMapHero() {
               const isActive = activeMarker === marker.id;
               return (
                 <div
-                  className={`coverage-marker-wrap ${marker.type}`}
+                  className={`coverage-marker-wrap ${marker.type}${
+                    marker.x < 12
+                      ? " edge-left"
+                      : marker.x > 88
+                        ? " edge-right"
+                        : ""
+                  }`}
                   key={marker.id}
                   style={{ left: `${marker.x}%`, top: `${marker.y}%` }}
                   onBlur={(event) => {
@@ -157,7 +270,7 @@ export function ServiceMapHero() {
                     aria-label={
                       marker.type === "office"
                         ? `NAVTEAM office: ${marker.label}, ${marker.detail}`
-                        : `Illustrative service partner coverage: ${marker.label}`
+                        : `Illustrative service partner coverage: ${marker.label}, ${marker.detail}`
                     }
                     onClick={() =>
                       setActiveMarker((current) =>
