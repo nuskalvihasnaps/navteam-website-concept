@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactModalProvider } from "./components/ContactModal";
+import { RouteScrollReset } from "./components/RouteScrollReset";
 import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
 import "./globals.css";
@@ -42,6 +43,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ContactModalProvider>
+          <RouteScrollReset />
           <SiteHeader />
           <main>{children}</main>
           <SiteFooter />
