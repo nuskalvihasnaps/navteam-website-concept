@@ -9,6 +9,7 @@ import {
   useState,
 } from "react";
 import { assetPath, brands, productGroups } from "../lib/site";
+import { ContactTrigger } from "./ContactModal";
 
 export function CatalogExplorer() {
   const [view, setView] = useState<"products" | "brands">("products");
@@ -146,6 +147,13 @@ export function CatalogExplorer() {
                 <div className="product-carousel-copy">
                   <h3>{product.name}</h3>
                   <p>{product.detail}</p>
+                  <ContactTrigger
+                    className="product-enquiry-cta"
+                    label={product.ctaLabel}
+                    source={`Products & Brands – ${product.name}`}
+                    defaultInquiry="Other"
+                    defaultMessage={`I am interested in ${product.enquirySubject}.`}
+                  />
                 </div>
                 <div className="product-carousel-image">
                   <img

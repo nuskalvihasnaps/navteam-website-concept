@@ -16,6 +16,7 @@ type ContactOptions = {
   source: string;
   defaultInquiry?: string;
   defaultPort?: string;
+  defaultMessage?: string;
 };
 
 type ContactModalContextValue = {
@@ -143,6 +144,7 @@ export function ContactTrigger({
   source,
   defaultInquiry,
   defaultPort,
+  defaultMessage,
 }: ContactTriggerProps) {
   const context = useContactModal();
 
@@ -151,7 +153,12 @@ export function ContactTrigger({
       className={className}
       type="button"
       onClick={() =>
-        context.openContact({ source, defaultInquiry, defaultPort })
+        context.openContact({
+          source,
+          defaultInquiry,
+          defaultPort,
+          defaultMessage,
+        })
       }
     >
       {label}
@@ -340,6 +347,7 @@ function ContactForm({
             id="contact-message"
             name="message"
             rows={4}
+            defaultValue={options.defaultMessage}
             required
             aria-invalid={Boolean(errors.message)}
             aria-describedby={

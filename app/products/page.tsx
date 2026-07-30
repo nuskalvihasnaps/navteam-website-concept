@@ -11,17 +11,19 @@ export const metadata: Metadata = {
 export default function ProductsPage() {
   return (
     <>
-      <section className="products-intro">
-        <h1>Products &amp; Brands</h1>
-        <p>
-          Explore professional marine electronics by product type or
-          manufacturer.
-        </p>
-      </section>
+      <div className="products-opening">
+        <section className="products-intro">
+          <h1>Products &amp; Brands</h1>
+          <p>
+            Explore professional marine electronics by product type or
+            manufacturer.
+          </p>
+        </section>
 
-      <section className="page-section products-catalogue">
-        <CatalogExplorer />
-      </section>
+        <section className="page-section products-catalogue">
+          <CatalogExplorer />
+        </section>
+      </div>
 
       <section className="distributor-banner">
         <div>
