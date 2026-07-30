@@ -82,8 +82,8 @@ const coverageMarkers: CoverageMarker[] = [
   {
     id: "partner-colon",
     type: "partner",
-    x: 21,
-    y: 60,
+    x: 20.8,
+    y: 59.7,
     label: "Colón",
     detail: "Panama",
   },
