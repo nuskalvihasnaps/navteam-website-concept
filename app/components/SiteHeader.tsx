@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const navigation = [
   { href: "/products", label: "Products & Brands" },
@@ -15,6 +15,24 @@ const navigation = [
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    if (pathname !== "/service") return;
+
+    const root = document.documentElement;
+    const previousScrollBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+    window.scrollTo({ top: 0, left: 0 });
+
+    const restoreFrame = window.requestAnimationFrame(() => {
+      root.style.scrollBehavior = previousScrollBehavior;
+    });
+
+    return () => {
+      window.cancelAnimationFrame(restoreFrame);
+      root.style.scrollBehavior = previousScrollBehavior;
+    };
+  }, [pathname]);
 
   return (
     <header className="site-header">
