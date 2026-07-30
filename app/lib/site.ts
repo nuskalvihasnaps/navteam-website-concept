@@ -1,13 +1,44 @@
 export const productGroups = [
-  { name: "Radar", detail: "Navigation and collision avoidance", code: "RAD" },
-  { name: "GMDSS", detail: "Safety and communications", code: "SOS" },
-  { name: "Gyro & heading", detail: "Heading reference systems", code: "GYR" },
-  { name: "ECDIS", detail: "Electronic chart systems", code: "ECD" },
-  { name: "AIS & GPS", detail: "Positioning and identification", code: "GPS" },
-  { name: "Sensors", detail: "Speed, depth and environmental", code: "SNS" },
-  { name: "VDR", detail: "Voyage data recording", code: "VDR" },
-  { name: "Communication", detail: "Satellite and radio systems", code: "COM" },
-  { name: "Autopilot", detail: "Steering and track control", code: "AUT" },
+  {
+    name: "Radar",
+    detail: "X-band and S-band navigation and collision avoidance.",
+    image: "products/radar.png",
+  },
+  {
+    name: "GMDSS",
+    detail: "Distress, safety and operational communications.",
+    image: "products/gmdss.png",
+  },
+  {
+    name: "Heading devices",
+    detail: "GPS compasses and heading distribution systems.",
+    image: "products/heading-devices.png",
+  },
+  {
+    name: "Gyrocompasses",
+    detail: "Marine gyro heading reference and control equipment.",
+    image: "products/gyrocompass.png",
+  },
+  {
+    name: "ECDIS",
+    detail: "Electronic chart display and navigation workstations.",
+    image: "products/ecdis.png",
+  },
+  {
+    name: "GPS / AIS",
+    detail: "Positioning, vessel identification and navigation sensors.",
+    image: "products/gps-ais.png",
+  },
+  {
+    name: "VDR",
+    detail: "Voyage data recording and protected data storage.",
+    image: "products/vdr.png",
+  },
+  {
+    name: "Other navigation equipment",
+    detail: "Displays, sensors, autopilots and bridge accessories.",
+    image: "products/other-navigation.png",
+  },
 ];
 
 export const brands = [

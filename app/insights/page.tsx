@@ -12,7 +12,6 @@ export default function InsightsPage() {
   return (
     <>
       <PageHero
-        label="News & insights"
         title="Useful knowledge from the bridge."
         copy="A home for technical guidance, product lifecycle notices, company news and projects that demonstrate NAVTEAM's capabilities."
         detail="Concept articles shown for presentation purposes"

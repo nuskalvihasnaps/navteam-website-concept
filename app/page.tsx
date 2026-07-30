@@ -15,7 +15,6 @@ export default function Home() {
       >
         <div className="hero-shade" />
         <div className="hero-content">
-          <p className="eyebrow">Professional marine electronics</p>
           <h1>
             Supply Integrate
             <span className="hero-title-line">Worldwide Support.</span>
@@ -62,7 +61,6 @@ export default function Home() {
       <section className="section home-products">
         <div className="section-heading">
           <div>
-            <p className="eyebrow dark">Products & brands</p>
             <h2>Find the right equipment for your vessel.</h2>
           </div>
           <p>
@@ -73,7 +71,6 @@ export default function Home() {
         <div className="preview-grid">
           {productGroups.slice(0, 6).map((product) => (
             <Link className="preview-card" href="/products" key={product.name}>
-              <span>{product.code}</span>
               <h3>{product.name}</h3>
               <p>{product.detail}</p>
             </Link>
@@ -92,7 +89,6 @@ export default function Home() {
           />
         </div>
         <div className="home-service-copy">
-          <p className="eyebrow">Service & support</p>
           <h2>Onboard expertise, wherever you sail.</h2>
           <p>
             From annual surveys and gyro overhauls to complete bridge
@@ -113,7 +109,6 @@ export default function Home() {
       <section className="section home-insights">
         <div className="section-heading">
           <div>
-            <p className="eyebrow dark">Insights</p>
             <h2>News from the bridge.</h2>
           </div>
           <Link className="text-link" href="/insights">
@@ -139,7 +134,6 @@ export default function Home() {
 
       <section className="home-cta">
         <div>
-          <p className="eyebrow">About NAVTEAM</p>
           <h2>Independent expertise. Global reach.</h2>
         </div>
         <div>

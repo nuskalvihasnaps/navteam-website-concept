@@ -13,7 +13,6 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        label="Contact NAVTEAM"
         title="Products, projects or urgent service."
         copy="Reach the coordinating team and we will connect your vessel with the right product specialist, engineer or service partner."
         detail="For urgent service, call +45 63 21 80 80"
@@ -22,7 +21,6 @@ export default function ContactPage() {
       <section className="page-section">
         <div className="contact-grid">
           <article className="contact-panel primary-panel">
-            <p className="eyebrow">General enquiries</p>
             <h2>Start with NAVTEAM.</h2>
             <Link href="mailto:navteam@navteam.com">
               navteam@navteam.com
@@ -30,7 +28,6 @@ export default function ContactPage() {
             <Link href="tel:+4563218080">+45 63 21 80 80</Link>
           </article>
           <article className="contact-panel">
-            <p className="eyebrow dark">For faster service</p>
             <h2>Include these details.</h2>
             <ul className="checklist">
               <li>Vessel name and IMO number</li>
@@ -46,7 +43,6 @@ export default function ContactPage() {
       <section className="page-section alt">
         <div className="section-heading">
           <div>
-            <p className="eyebrow dark">NAVTEAM offices</p>
             <h2>Local presence, worldwide coordination.</h2>
           </div>
         </div>

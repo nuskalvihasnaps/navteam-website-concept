@@ -301,7 +301,6 @@ export function ServiceMapHero() {
       >
         <div className="service-details-heading">
           <div className="service-details-title">
-            <p className="eyebrow dark">Onboard capability</p>
             <h2 id="service-details-title">
               From annual surveys and equipment repairs to complete bridge
               retrofits, NAVTEAM coordinates the right expertise for the vessel

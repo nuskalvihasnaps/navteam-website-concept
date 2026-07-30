@@ -27,7 +27,6 @@ export default function CareersPage() {
   return (
     <>
       <PageHero
-        label="Careers"
         title="Work where technology meets the sea."
         copy="NAVTEAM brings together marine experience, technical curiosity and a practical service mindset."
         detail="Future vacancies can be filtered by location and discipline"
@@ -36,7 +35,6 @@ export default function CareersPage() {
       <section className="page-section">
         <div className="section-heading">
           <div>
-            <p className="eyebrow dark">Join the team</p>
             <h2>Build a career around real-world systems.</h2>
           </div>
           <p>
@@ -57,7 +55,6 @@ export default function CareersPage() {
 
       <section className="home-cta compact-cta">
         <div>
-          <p className="eyebrow">Open application</p>
           <h2>Think you would fit NAVTEAM?</h2>
         </div>
         <Link

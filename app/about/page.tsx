@@ -13,7 +13,6 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        label="About NAVTEAM"
         title="Independent expertise. Global reach."
         copy="NAVTEAM supplies, integrates and supports professional marine electronics across the vessel's operational lifetime."
         detail="Navigation · Communication · Safety · Integration · Service"
@@ -22,7 +21,6 @@ export default function AboutPage() {
       <section className="page-section">
         <div className="split-layout">
           <div>
-            <p className="eyebrow dark">Our role</p>
             <h2>A practical partner for the complete bridge.</h2>
           </div>
           <div className="content-copy">
@@ -61,7 +59,6 @@ export default function AboutPage() {
       <section className="page-section alt">
         <div className="section-heading">
           <div>
-            <p className="eyebrow dark">Our locations</p>
             <h2>Three offices. One coordinating team.</h2>
           </div>
           <Link className="text-link" href="/contact">

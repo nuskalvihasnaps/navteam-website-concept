@@ -36,7 +36,6 @@ export function CoverageExplorer() {
       </div>
 
       <aside className="coverage-panel">
-        <p className="eyebrow red">Coverage at launch</p>
         <h2>3 NAVTEAM offices</h2>
         <label className="port-search">
           <span>Search office, port or country</span>

@@ -1,5 +1,4 @@
 type PageHeroProps = {
-  label: string;
   title: string;
   copy: string;
   detail?: string;
@@ -7,7 +6,6 @@ type PageHeroProps = {
 };
 
 export function PageHero({
-  label,
   title,
   copy,
   detail,
@@ -16,7 +14,6 @@ export function PageHero({
   return (
     <section className={compact ? "page-hero compact" : "page-hero"}>
       <div>
-        <p className="eyebrow">{label}</p>
         <h1>{title}</h1>
       </div>
       <div className="page-hero-copy">
