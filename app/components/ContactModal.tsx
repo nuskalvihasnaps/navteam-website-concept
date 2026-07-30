@@ -15,6 +15,7 @@ import { serviceCapabilities } from "../lib/site";
 type ContactOptions = {
   source: string;
   defaultInquiry?: string;
+  defaultPort?: string;
 };
 
 type ContactModalContextValue = {
@@ -141,22 +142,33 @@ export function ContactTrigger({
   className,
   source,
   defaultInquiry,
+  defaultPort,
 }: ContactTriggerProps) {
-  const context = useContext(ContactModalContext);
-
-  if (!context) {
-    throw new Error("ContactTrigger must be used inside ContactModalProvider.");
-  }
+  const context = useContactModal();
 
   return (
     <button
       className={className}
       type="button"
-      onClick={() => context.openContact({ source, defaultInquiry })}
+      onClick={() =>
+        context.openContact({ source, defaultInquiry, defaultPort })
+      }
     >
       {label}
     </button>
   );
+}
+
+export function useContactModal() {
+  const context = useContext(ContactModalContext);
+
+  if (!context) {
+    throw new Error(
+      "useContactModal must be used inside ContactModalProvider.",
+    );
+  }
+
+  return context;
 }
 
 function ContactForm({
@@ -286,6 +298,7 @@ function ContactForm({
             id="contact-port"
             label="Port of call"
             name="port"
+            defaultValue={options.defaultPort}
           />
         </div>
 
@@ -361,6 +374,7 @@ function ContactField({
   type = "text",
   inputMode,
   required = false,
+  defaultValue,
   error,
 }: {
   id: string;
@@ -369,6 +383,7 @@ function ContactField({
   type?: string;
   inputMode?: "numeric";
   required?: boolean;
+  defaultValue?: string;
   error?: string;
 }) {
   const errorId = `${id}-error`;
@@ -384,6 +399,7 @@ function ContactField({
         type={type}
         inputMode={inputMode}
         required={required}
+        defaultValue={defaultValue}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? errorId : undefined}
       />

@@ -605,10 +605,19 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   z-index: 2;
   top: clamp(28px, 4vh, 48px);
   left: clamp(28px, 3.4vw, 52px);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   color: var(--white);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .35);
+}
+.service-map-heading strong {
   font-size: clamp(20px, 2vw, 30px);
   letter-spacing: -.025em;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, .35);
+}
+.service-map-heading span {
+  color: rgba(255, 255, 255, .78);
+  font-size: clamp(12px, 1vw, 15px);
 }
 .service-map-graphic {
   position: relative;
@@ -710,6 +719,14 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 .coverage-marker-wrap.edge-right .coverage-tooltip::after {
   left: 90%;
 }
+.coverage-marker-wrap.edge-top .coverage-tooltip {
+  top: 18px;
+  bottom: auto;
+}
+.coverage-marker-wrap.edge-top .coverage-tooltip::after {
+  top: 0;
+  bottom: auto;
+}
 .coverage-tooltip > span {
   color: var(--brand-red);
   font-size: 9px;
@@ -720,6 +737,11 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 .coverage-marker-wrap.partner .coverage-tooltip > span { color: var(--blue); }
 .coverage-tooltip strong { font-size: 15px; }
 .coverage-tooltip small { color: var(--muted); font-size: 11px; }
+.coverage-tooltip .coverage-tooltip-action {
+  margin-top: 5px;
+  color: var(--blue);
+  font-weight: 800;
+}
 .coverage-tooltip a {
   position: relative;
   z-index: 1;

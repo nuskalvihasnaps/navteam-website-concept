@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { assetPath, serviceCapabilities } from "../lib/site";
-import { ContactTrigger } from "./ContactModal";
+import { ContactTrigger, useContactModal } from "./ContactModal";
 
 type CoverageMarker = {
   id: string;
@@ -138,6 +138,7 @@ const coverageMarkers: CoverageMarker[] = [
 ];
 
 export function ServiceMapHero() {
+  const { openContact } = useContactModal();
   const [activeMarker, setActiveMarker] = useState<string | null>(null);
   const [selectedService, setSelectedService] = useState<string | null>(null);
   const serviceDetailsRef = useRef<HTMLElement>(null);
@@ -206,9 +207,10 @@ export function ServiceMapHero() {
             if (event.key === "Escape") setActiveMarker(null);
           }}
         >
-          <strong className="service-map-heading" aria-hidden="true">
-            Worldwide coverage
-          </strong>
+          <div className="service-map-heading">
+            <strong>Select a location on the map</strong>
+            <span>or choose a service from the sidebar.</span>
+          </div>
 
           <div className="service-map-graphic">
             <img
@@ -225,7 +227,7 @@ export function ServiceMapHero() {
                       : marker.x > 88
                         ? " edge-right"
                         : ""
-                  }`}
+                  }${marker.y < 34 ? " edge-top" : ""}`}
                   key={marker.id}
                   style={{ left: `${marker.x}%`, top: `${marker.y}%` }}
                   onBlur={(event) => {
@@ -246,11 +248,13 @@ export function ServiceMapHero() {
                         ? `NAVTEAM office: ${marker.label}, ${marker.detail}`
                         : `Illustrative service partner coverage: ${marker.label}, ${marker.detail}`
                     }
-                    onClick={() =>
-                      setActiveMarker((current) =>
-                        current === marker.id ? null : marker.id,
-                      )
-                    }
+                    onClick={() => {
+                      setActiveMarker(null);
+                      openContact({
+                        source: `Service coverage map – ${marker.label}, ${marker.detail}`,
+                        defaultPort: `${marker.label}, ${marker.detail}`,
+                      });
+                    }}
                     onFocus={() => setActiveMarker(marker.id)}
                   >
                     <span className="marker-pulse" />
@@ -265,11 +269,12 @@ export function ServiceMapHero() {
                       </span>
                       <strong>{marker.label}</strong>
                       {marker.detail ? <small>{marker.detail}</small> : null}
-                      {marker.type === "office" ? (
-                        <Link href="/contact">Contact this office ↗</Link>
-                      ) : (
+                      {marker.type === "partner" ? (
                         <small>Illustrative coverage point</small>
-                      )}
+                      ) : null}
+                      <small className="coverage-tooltip-action">
+                        Click to contact NAVTEAM
+                      </small>
                     </div>
                   ) : null}
                 </div>
