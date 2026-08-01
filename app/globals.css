@@ -228,7 +228,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   min-height: 620px;
   height: min(780px, calc(100svh - var(--header-height)));
   display: grid;
-  grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
   overflow: hidden;
   background: var(--white);
   border-bottom: 1px solid var(--line);
@@ -242,7 +242,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 .home-hero-copy h1 {
   max-width: 780px;
   margin-bottom: 26px;
-  font-size: clamp(48px, 5.2vw, 82px);
+  font-size: clamp(44px, 3.6vw, 68px);
   line-height: .98;
   letter-spacing: -.055em;
 }
@@ -255,15 +255,26 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 }
 .home-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; }
 .home-hero-link {
+  min-height: 50px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  padding: 0 22px;
   color: var(--blue);
+  border: 1px solid rgba(11, 111, 153, .58);
+  border-radius: 999px;
+  background: rgba(11, 111, 153, .08);
   font-size: 14px;
   font-weight: 800;
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
 }
 .home-hero-link:hover,
-.home-hero-link:focus-visible { color: var(--ink); }
+.home-hero-link:focus-visible {
+  color: var(--white);
+  border-color: var(--blue);
+  background: var(--blue);
+}
 .home-hero-facts {
   display: grid;
   grid-template-columns: .55fr 1.35fr 1fr;
@@ -367,7 +378,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   box-shadow: 0 12px 28px rgba(11, 13, 15, .08);
 }
 .home-product-tile {
-  min-height: 176px;
+  height: 176px;
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
   overflow: hidden;
@@ -398,7 +409,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 .home-product-tile[data-product-id="gyrocompasses"] img,
 .home-product-tile[data-product-id="ecdis"] img { width: 84%; }
 .home-manufacturer-tile {
-  min-height: 176px;
+  height: 176px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1948,7 +1959,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   .home-product-grid,
   .home-manufacturer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .home-product-tile,
-  .home-manufacturer-tile { min-height: 158px; }
+  .home-manufacturer-tile { height: 158px; }
   .home-contact-details { margin-top: 30px; }
   .all-products-panel { margin-top: 32px; padding: 24px; }
   .all-products-list { grid-template-columns: 1fr; }
