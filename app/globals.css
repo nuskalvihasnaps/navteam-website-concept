@@ -379,19 +379,19 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   min-height: calc(100svh - var(--header-height));
   background: var(--white);
 }
-.products-intro {
+.products-intro, .about-intro {
   padding: clamp(28px, 4vh, 42px) var(--content-edge) clamp(20px, 3vh, 30px);
   background: var(--white);
   border-bottom: 1px solid var(--line);
 }
-.products-intro h1 {
+.products-intro h1, .about-intro h1 {
   margin: 0 0 8px;
   color: var(--ink);
   font-size: var(--page-title);
   line-height: .98;
   letter-spacing: -.055em;
 }
-.products-intro p {
+.products-intro p, .about-intro p {
   max-width: 650px;
   margin: 0;
   color: var(--muted);
@@ -1202,65 +1202,13 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 .office-grid article a { color: var(--blue); font-size: 13px; font-weight: 750; }
 
 .about-opening { background: var(--white); }
-.about-intro {
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: var(--section-gap);
-  align-items: end;
-  padding: clamp(52px, 5vw, 76px) var(--content-edge) clamp(44px, 4vw, 64px);
-  border-bottom: 1px solid var(--line);
-}
-.about-intro h1 {
-  max-width: 760px;
-  margin: 0;
-  font-size: var(--page-title);
-  line-height: .98;
-  letter-spacing: -.055em;
-}
-.about-intro-copy { max-width: 650px; }
-.about-intro-copy p {
-  margin-bottom: 20px;
-  color: var(--ink);
-  font-size: var(--body-large);
-  line-height: 1.6;
-}
-.about-intro-copy span {
-  display: block;
-  padding-top: 18px;
-  color: var(--blue);
-  border-top: 1px solid var(--line);
-  font-size: 13px;
-  font-weight: 750;
-}
-.about-pillars { padding: clamp(54px, 5vw, 76px) var(--content-edge) var(--section-space); }
-.about-section-heading {
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: var(--section-gap);
-  align-items: end;
-  margin-bottom: clamp(32px, 3vw, 44px);
-}
-.about-section-heading h2 {
-  max-width: 700px;
-  margin: 0;
-  font-size: var(--section-title);
-  line-height: 1.05;
-  letter-spacing: -.04em;
-}
-.about-section-heading p {
-  max-width: 650px;
-  margin: 0;
-  color: var(--muted);
-  font-size: 17px;
-  line-height: 1.65;
-}
 .about-pillar-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--grid-gap);
 }
 .about-pillar-card {
-  min-height: 360px;
+  min-height: 320px;
   display: flex;
   flex-direction: column;
   padding: var(--card-padding);
@@ -1273,7 +1221,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   font-weight: 800;
 }
 .about-pillar-card h3 {
-  margin: clamp(44px, 4vw, 64px) 0 16px;
+  margin: clamp(38px, 3.5vw, 52px) 0 16px;
   font-size: var(--card-title);
   line-height: 1.12;
 }
@@ -1621,17 +1569,13 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   }
   .section, .page-section { padding: var(--section-space) var(--content-edge); }
   .products-opening { min-height: 0; }
-  .products-intro { padding: 48px var(--content-edge) 32px; }
-  .products-intro h1 { font-size: var(--page-title); }
+  .products-intro, .about-intro { padding: 48px var(--content-edge) 32px; }
+  .products-intro h1, .about-intro h1 { font-size: var(--page-title); }
   .products-catalogue { padding: 36px var(--content-edge) var(--section-space); }
   .section-heading, .page-hero, .home-cta, .distributor-banner, .split-layout,
-  .about-intro, .about-section-heading,
   .home-service, .service-page-layout, .contact-grid {
     grid-template-columns: 1fr;
   }
-  .about-intro { align-items: start; padding-top: 48px; padding-bottom: 42px; }
-  .about-intro-copy { max-width: 620px; }
-  .about-pillars { padding-top: 48px; }
   .about-pillar-grid { grid-template-columns: 1fr; }
   .about-pillar-card { min-height: 0; }
   .about-pillar-card h3 { margin-top: 42px; }
@@ -1726,8 +1670,8 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 }
 
 @media (max-height: 760px) and (min-width: 821px) {
-  .products-intro { padding-top: 22px; padding-bottom: 18px; }
-  .products-intro h1 { font-size: 54px; }
+  .products-intro, .about-intro { padding-top: 22px; padding-bottom: 18px; }
+  .products-intro h1, .about-intro h1 { font-size: 54px; }
   .products-catalogue { padding-top: 16px; padding-bottom: 20px; }
   .catalog-toolbar { margin-bottom: 12px; }
   .product-carousel-heading { margin-bottom: 10px; }

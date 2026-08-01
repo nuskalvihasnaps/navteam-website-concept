@@ -38,28 +38,26 @@ const officeDescriptions: Record<string, string> = {
 export default function AboutPage() {
   return (
     <>
-      <main className="about-opening">
+      <div className="about-opening">
         <section className="about-intro">
-          <div>
-            <h1>About NAVTEAM</h1>
-          </div>
-          <div className="about-intro-copy">
-            <p>
-              A marine electronics knowledge centre and system integrator
-              built on know-how, credibility and trust.
-            </p>
-            <span>
-              Commitment, flexibility and attention to your business.
-            </span>
-          </div>
+          <h1>About NAVTEAM</h1>
+          <p>
+            A marine electronics knowledge centre and system integrator built
+            on know-how, credibility and trust.
+          </p>
         </section>
 
-        <section className="about-pillars" aria-labelledby="about-pillars-title">
-          <div className="about-section-heading">
-            <h2 id="about-pillars-title">What NAVTEAM brings onboard.</h2>
+        <section
+          className="page-section about-pillars"
+          aria-labelledby="about-pillars-title"
+        >
+          <div className="section-heading">
+            <div>
+              <h2 id="about-pillars-title">What NAVTEAM brings onboard.</h2>
+            </div>
             <p>
-              An efficient and flexible organisation combining marine
-              experience, technical integration and responsive support.
+              Since 2001, we have grown through commitment, flexibility and
+              close attention to our customers&apos; business.
             </p>
           </div>
 
@@ -73,7 +71,7 @@ export default function AboutPage() {
             ))}
           </div>
         </section>
-      </main>
+      </div>
 
       <section className="page-section alt about-offices">
         <div className="section-heading">
