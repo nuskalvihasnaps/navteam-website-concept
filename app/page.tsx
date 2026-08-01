@@ -44,7 +44,10 @@ export default function Home() {
           />
           <div>
             <strong>Equipment · Integration · Service</strong>
-            <span>One coordinating marine electronics partner.</span>
+            <span className="home-hero-status">
+              <i aria-hidden="true" />
+              24/7 support coordination
+            </span>
           </div>
         </div>
       </section>
