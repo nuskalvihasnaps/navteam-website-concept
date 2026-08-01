@@ -1,154 +1,129 @@
-import type { CSSProperties } from "react";
 import Link from "next/link";
-import { assetPath, productGroups, services, stories } from "./lib/site";
+import { ContactForm } from "./components/ContactModal";
+import { assetPath, manufacturers, productGroups } from "./lib/site";
 
 export default function Home() {
   return (
     <>
-      <section
-        className="hero"
-        style={
-          {
-            "--hero-image": `url("${assetPath("bridge-hero.png")}")`,
-          } as CSSProperties
-        }
-      >
-        <div className="hero-shade" />
-        <div className="hero-content">
-          <h1>
-            Supply Integrate
-            <span className="hero-title-line">Worldwide Support.</span>
-          </h1>
-          <p className="hero-copy">
-            Navigation, communication and safety systems for commercial
-            vessels, backed by technicians and service partners in the
-            world&apos;s major ports.
+      <section className="home-hero">
+        <div className="home-hero-copy">
+          <h1>Professional marine electronics. Practical support worldwide.</h1>
+          <p>
+            NAVTEAM supplies, integrates and services navigation,
+            communication and safety equipment for commercial vessels. One
+            experienced team coordinates the right products and people from
+            bridge to port.
           </p>
-          <div className="hero-actions">
+          <div className="home-hero-actions">
             <Link className="button primary" href="/products">
               Explore products
             </Link>
-            <Link className="button secondary" href="/service">
-              Request service
+            <Link className="home-hero-link" href="/service">
+              Service &amp; support <span aria-hidden="true">↗</span>
             </Link>
           </div>
+          <dl className="home-hero-facts">
+            <div>
+              <dt>Since</dt>
+              <dd>2001</dd>
+            </div>
+            <div>
+              <dt>NAVTEAM offices</dt>
+              <dd>Denmark · Poland · Malaysia</dd>
+            </div>
+            <div>
+              <dt>Support</dt>
+              <dd>Remote and onboard</dd>
+            </div>
+          </dl>
         </div>
-        <div className="hero-status">
-          <span className="pulse" />
-          <span>24/7 service coordination</span>
-          <a href="tel:+4563218080">+45 63 21 80 80</a>
-        </div>
-      </section>
-
-      <section className="task-strip" aria-label="Primary customer tasks">
-        <Link href="/products">
-          <span>01</span>
-          <strong>Find equipment</strong>
-          <small>Browse by product type or manufacturer</small>
-        </Link>
-        <Link href="/service">
-          <span>02</span>
-          <strong>Arrange service</strong>
-          <small>Annuals, installation, retrofit and repair</small>
-        </Link>
-        <Link href="/service">
-          <span>03</span>
-          <strong>Find global support</strong>
-          <small>Search ports, offices and service partners</small>
-        </Link>
-      </section>
-
-      <section className="section home-products">
-        <div className="section-heading">
-          <div>
-            <h2>Find the right equipment for your vessel.</h2>
-          </div>
-          <p>
-            Search professional bridge equipment by system or manufacturer,
-            with clear supply, installation, service and authorization status.
-          </p>
-        </div>
-        <div className="preview-grid">
-          {productGroups.slice(0, 6).map((product) => (
-            <Link className="preview-card" href="/products" key={product.name}>
-              <h3>{product.name}</h3>
-              <p>{product.detail}</p>
-            </Link>
-          ))}
-        </div>
-        <Link className="text-link" href="/products">
-          View all products and brands ↗
-        </Link>
-      </section>
-
-      <section className="home-service">
-        <div className="home-service-image">
+        <div className="home-hero-image">
           <img
-            src={assetPath("service-engineer.png")}
-            alt="NAVTEAM engineer servicing marine electronics onboard a vessel"
+            src={assetPath("bridge-hero.png")}
+            alt="Navigation bridge onboard a commercial vessel"
           />
-        </div>
-        <div className="home-service-copy">
-          <h2>Onboard expertise, wherever you sail.</h2>
-          <p>
-            From annual surveys and gyro overhauls to complete bridge
-            retrofits, one coordinating team connects vessels with the right
-            expertise.
-          </p>
-          <ul className="compact-list">
-            {services.slice(0, 5).map((service) => (
-              <li key={service}>{service}</li>
-            ))}
-          </ul>
-          <Link className="button secondary" href="/service">
-            Explore service coverage
-          </Link>
-        </div>
-      </section>
-
-      <section className="section home-insights">
-        <div className="section-heading">
           <div>
-            <h2>News from the bridge.</h2>
+            <strong>Equipment · Integration · Service</strong>
+            <span>One coordinating marine electronics partner.</span>
           </div>
-          <Link className="text-link" href="/insights">
-            View all insights ↗
-          </Link>
-        </div>
-        <div className="story-grid">
-          {stories.slice(0, 3).map((story, index) => (
-            <article className={index === 0 ? "story story-image" : "story"} key={story.title}>
-              {index === 0 ? (
-                <img src={assetPath("jrc-radar.jpg")} alt="Marine radar controls" />
-              ) : null}
-              <div>
-                <span>{story.category}</span>
-                <h3>{story.title}</h3>
-                <p>{story.summary}</p>
-                <Link href="/insights">Read more ↗</Link>
-              </div>
-            </article>
-          ))}
         </div>
       </section>
 
-      <section className="home-cta">
-        <div>
-          <h2>Independent expertise. Global reach.</h2>
+      <section className="home-finder" aria-label="Browse NAVTEAM products">
+        <div className="home-finder-panel home-product-finder">
+          <div className="home-finder-heading">
+            <h2>Looking for a specific product?</h2>
+            <p>Browse the main bridge systems and equipment categories.</p>
+          </div>
+          <div className="home-product-grid">
+            {productGroups.map((product) => (
+              <Link
+                className="home-product-tile"
+                data-product-id={product.id}
+                href="/products#product-types"
+                key={product.id}
+              >
+                <div className="home-product-tile-image">
+                  <img src={assetPath(product.image)} alt="" loading="lazy" />
+                </div>
+                <h3>{product.name}</h3>
+              </Link>
+            ))}
+          </div>
+          <Link className="home-finder-link" href="/products#product-types">
+            Browse all products <span aria-hidden="true">→</span>
+          </Link>
         </div>
-        <div>
-          <p>
-            Professional marine electronics across the vessel&apos;s
-            operational lifetime—from individual components to complete bridge
-            retrofits.
-          </p>
-          <div className="hero-actions">
-            <Link className="button primary" href="/about">
-              About NAVTEAM
-            </Link>
-            <Link className="button secondary" href="/contact">
-              Contact us
-            </Link>
+
+        <div className="home-finder-panel home-manufacturer-finder">
+          <div className="home-finder-heading">
+            <h2>Looking for a specific manufacturer?</h2>
+            <p>Explore the manufacturers supplied and supported by NAVTEAM.</p>
+          </div>
+          <div className="home-manufacturer-grid">
+            {manufacturers.map((manufacturer) => (
+              <Link
+                className="home-manufacturer-tile"
+                href="/products#manufacturers"
+                key={manufacturer.id}
+              >
+                <img
+                  src={assetPath(manufacturer.image)}
+                  alt={`${manufacturer.name} logo`}
+                  loading="lazy"
+                />
+                <span>{manufacturer.name}</span>
+              </Link>
+            ))}
+          </div>
+          <Link className="home-finder-link" href="/products#manufacturers">
+            Browse all manufacturers <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+      </section>
+
+      <section className="page-section home-contact">
+        <div className="home-contact-layout">
+          <div className="home-contact-copy">
+            <h2>Tell us what the vessel needs.</h2>
+            <p>
+              Products, spare parts, installations or urgent service—share
+              the essential details and NAVTEAM will coordinate the right next
+              step.
+            </p>
+            <div className="home-contact-details">
+              <span>Urgent service</span>
+              <Link href="tel:+4563218080">+45 63 21 80 80</Link>
+              <Link href="mailto:navteam@navteam.com">
+                navteam@navteam.com
+              </Link>
+            </div>
+          </div>
+          <div
+            className="contact-modal contact-page-form home-contact-form"
+            aria-labelledby="contact-page-form-title"
+          >
+            <ContactForm options={{ source: "Homepage" }} staticPage />
           </div>
         </div>
       </section>

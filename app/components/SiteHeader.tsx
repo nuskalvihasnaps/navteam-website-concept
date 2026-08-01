@@ -7,7 +7,7 @@ import { assetPath } from "../lib/site";
 
 const navigation = [
   { href: "/", label: "Home" },
-  { href: "/products", label: "Products & Brands" },
+  { href: "/products", label: "Products" },
   { href: "/service", label: "Service & Support" },
   { href: "/insights", label: "Insights" },
   { href: "/about", label: "About" },

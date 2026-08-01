@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CatalogExplorer } from "../components/CatalogExplorer";
 
 export const metadata: Metadata = {
-  title: "Products & Brands",
+  title: "Products",
   description:
     "Explore professional marine navigation, communication and safety equipment supplied and supported by NAVTEAM.",
 };
@@ -13,7 +13,7 @@ export default function ProductsPage() {
     <>
       <div className="products-opening">
         <section className="products-intro">
-          <h1>Products &amp; Brands</h1>
+          <h1>Products</h1>
           <p>
             Explore professional marine electronics by product type or
             manufacturer.

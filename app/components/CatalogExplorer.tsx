@@ -22,6 +22,18 @@ export function CatalogExplorer() {
   const seeAllButtonRef = useRef<HTMLButtonElement>(null);
   const normalizedQuery = query.trim().toLowerCase();
 
+  useEffect(() => {
+    function syncViewWithHash() {
+      setView(window.location.hash === "#manufacturers" ? "brands" : "products");
+      setQuery("");
+      setShowAllProducts(false);
+    }
+
+    syncViewWithHash();
+    window.addEventListener("hashchange", syncViewWithHash);
+    return () => window.removeEventListener("hashchange", syncViewWithHash);
+  }, []);
+
   const filteredProducts = useMemo(
     () =>
       productGroups.filter((product) =>
@@ -146,7 +158,11 @@ export function CatalogExplorer() {
       </div>
 
       {view === "products" ? (
-        <section className="product-carousel-section" aria-labelledby="product-types-title">
+        <section
+          className="product-carousel-section"
+          id="product-types"
+          aria-labelledby="product-types-title"
+        >
           <div className="product-carousel-heading">
             <div>
               <h2 id="product-types-title">Product types</h2>
@@ -186,6 +202,7 @@ export function CatalogExplorer() {
                 <article
                   className="product-carousel-card"
                   data-carousel-card
+                  data-product-id={product.id}
                   key={product.name}
                 >
                   <div className="product-carousel-copy">
@@ -194,7 +211,7 @@ export function CatalogExplorer() {
                     <ContactTrigger
                       className="product-enquiry-cta"
                       label={product.ctaLabel}
-                      source={`Products & Brands – ${product.name}`}
+                      source={`Products – ${product.name}`}
                       defaultInquiry="Other"
                       defaultMessage={`I am interested in ${product.enquirySubject}.`}
                     />
@@ -267,6 +284,7 @@ export function CatalogExplorer() {
       ) : (
         <section
           className="product-carousel-section manufacturer-carousel-section"
+          id="manufacturers"
           aria-labelledby="manufacturers-title"
         >
           <div className="product-carousel-heading">

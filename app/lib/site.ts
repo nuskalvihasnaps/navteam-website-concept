@@ -1,5 +1,6 @@
 export const productGroups = [
   {
+    id: "radar",
     name: "Radar",
     detail: "X-band and S-band navigation and collision avoidance.",
     image: "products/radar.png",
@@ -7,6 +8,7 @@ export const productGroups = [
     enquirySubject: "radar equipment",
   },
   {
+    id: "gmdss",
     name: "GMDSS",
     detail: "Distress, safety and operational communications.",
     image: "products/gmdss.png",
@@ -14,6 +16,7 @@ export const productGroups = [
     enquirySubject: "GMDSS equipment",
   },
   {
+    id: "heading-devices",
     name: "Heading devices",
     detail: "GPS compasses and heading distribution systems.",
     image: "products/heading-devices.png",
@@ -21,6 +24,7 @@ export const productGroups = [
     enquirySubject: "heading devices",
   },
   {
+    id: "gyrocompasses",
     name: "Gyrocompasses",
     detail: "Marine gyro heading reference and control equipment.",
     image: "products/gyrocompass.png",
@@ -28,6 +32,7 @@ export const productGroups = [
     enquirySubject: "gyrocompasses",
   },
   {
+    id: "ecdis",
     name: "ECDIS",
     detail: "Electronic chart display and navigation workstations.",
     image: "products/ecdis.png",
@@ -35,6 +40,7 @@ export const productGroups = [
     enquirySubject: "ECDIS equipment",
   },
   {
+    id: "gps-ais",
     name: "GPS / AIS",
     detail: "Positioning, vessel identification and navigation sensors.",
     image: "products/gps-ais.png",
@@ -42,6 +48,7 @@ export const productGroups = [
     enquirySubject: "GPS / AIS equipment",
   },
   {
+    id: "vdr",
     name: "VDR",
     detail: "Voyage data recording and protected data storage.",
     image: "products/vdr.png",
@@ -49,6 +56,7 @@ export const productGroups = [
     enquirySubject: "VDR equipment",
   },
   {
+    id: "other-navigation",
     name: "Other navigation equipment",
     detail: "Displays, sensors, autopilots and bridge accessories.",
     image: "products/other-navigation.png",

@@ -8,7 +8,7 @@ export function SiteFooter() {
         <span>Professional Marine Electronics</span>
       </Link>
       <div className="footer-links">
-        <Link href="/products">Products & Brands</Link>
+        <Link href="/products">Products</Link>
         <Link href="/service">Service & Support</Link>
         <Link href="/about">About</Link>
         <Link href="/careers">Careers</Link>
