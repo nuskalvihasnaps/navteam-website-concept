@@ -1201,6 +1201,101 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 .office-grid article > span, .job-card > span { color: var(--brand-red); font-size: 11px; font-weight: 800; text-transform: uppercase; }
 .office-grid article a { color: var(--blue); font-size: 13px; font-weight: 750; }
 
+.about-opening { background: var(--white); }
+.about-intro {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: var(--section-gap);
+  align-items: end;
+  padding: clamp(52px, 5vw, 76px) var(--content-edge) clamp(44px, 4vw, 64px);
+  border-bottom: 1px solid var(--line);
+}
+.about-intro h1 {
+  max-width: 760px;
+  margin: 0;
+  font-size: var(--page-title);
+  line-height: .98;
+  letter-spacing: -.055em;
+}
+.about-intro-copy { max-width: 650px; }
+.about-intro-copy p {
+  margin-bottom: 20px;
+  color: var(--ink);
+  font-size: var(--body-large);
+  line-height: 1.6;
+}
+.about-intro-copy span {
+  display: block;
+  padding-top: 18px;
+  color: var(--blue);
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  font-weight: 750;
+}
+.about-pillars { padding: clamp(54px, 5vw, 76px) var(--content-edge) var(--section-space); }
+.about-section-heading {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: var(--section-gap);
+  align-items: end;
+  margin-bottom: clamp(32px, 3vw, 44px);
+}
+.about-section-heading h2 {
+  max-width: 700px;
+  margin: 0;
+  font-size: var(--section-title);
+  line-height: 1.05;
+  letter-spacing: -.04em;
+}
+.about-section-heading p {
+  max-width: 650px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.65;
+}
+.about-pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--grid-gap);
+}
+.about-pillar-card {
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--card-padding);
+  border: 1px solid var(--line);
+  background: var(--surface-alt);
+}
+.about-pillar-card > span {
+  color: var(--brand-red);
+  font-size: 11px;
+  font-weight: 800;
+}
+.about-pillar-card h3 {
+  margin: clamp(44px, 4vw, 64px) 0 16px;
+  font-size: var(--card-title);
+  line-height: 1.12;
+}
+.about-pillar-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
+.about-offices .office-grid article {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+.about-offices .office-grid h3 { margin-top: 48px; }
+.about-offices .office-grid .office-country {
+  margin-bottom: 20px;
+  color: var(--ink);
+  font-weight: 700;
+}
+.about-offices .office-grid article a { margin-top: auto; padding-top: 28px; }
+
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--grid-gap); }
 .contact-panel { min-height: 390px; padding: var(--card-padding); border: 1px solid var(--line); }
 .primary-panel { color: var(--white); background: var(--charcoal); border-color: var(--charcoal); }
@@ -1462,6 +1557,8 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 }
 
 @media (max-width: 820px) {
+  .about-pillar-grid { grid-template-columns: 1fr; }
+  .about-pillar-card { min-height: 0; }
   .service-map-hero { display: block; }
   .service-map-sidebar {
     min-height: auto;
@@ -1528,9 +1625,16 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   .products-intro h1 { font-size: var(--page-title); }
   .products-catalogue { padding: 36px var(--content-edge) var(--section-space); }
   .section-heading, .page-hero, .home-cta, .distributor-banner, .split-layout,
+  .about-intro, .about-section-heading,
   .home-service, .service-page-layout, .contact-grid {
     grid-template-columns: 1fr;
   }
+  .about-intro { align-items: start; padding-top: 48px; padding-bottom: 42px; }
+  .about-intro-copy { max-width: 620px; }
+  .about-pillars { padding-top: 48px; }
+  .about-pillar-grid { grid-template-columns: 1fr; }
+  .about-pillar-card { min-height: 0; }
+  .about-pillar-card h3 { margin-top: 42px; }
   .page-hero { min-height: 440px; padding: var(--section-space) var(--content-edge); align-items: start; }
   .page-hero.compact { min-height: 300px; padding: 42px var(--content-edge); }
   .page-hero h1 { font-size: var(--page-title); }
