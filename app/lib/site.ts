@@ -57,26 +57,77 @@ export const productGroups = [
   },
 ];
 
-export const brands = [
-  "JRC",
-  "Yokogawa",
-  "Tokyo Keiki",
-  "SAAB",
-  "Sailor",
-  "YDK Technologies",
-  "NAVIS Engineering",
-  "Wärtsilä",
-  "Danelec",
-  "Motorola",
-  "Thrane",
-  "Jotron",
-  "Intellian",
-  "Inmarsat",
-  "Iridium",
-  "Alphatron Marine",
-  "IWCS",
-  "Furuno",
-  "Raymarine",
+export type Manufacturer = {
+  id: string;
+  name: string;
+  image: string;
+  nationalDistributor?: boolean;
+};
+
+export const manufacturers: Manufacturer[] = [
+  {
+    id: "jrc",
+    name: "JRC",
+    image: "brands/jrc.png",
+    nationalDistributor: true,
+  },
+  {
+    id: "yokogawa",
+    name: "Yokogawa",
+    image: "brands/yokogawa.png",
+    nationalDistributor: true,
+  },
+  {
+    id: "tokyo-keiki",
+    name: "Tokyo Keiki",
+    image: "brands/tokyo-keiki.png",
+    nationalDistributor: true,
+  },
+  {
+    id: "ydk-technologies",
+    name: "YDK Technologies",
+    image: "brands/ydk-technologies.png",
+  },
+  {
+    id: "sailor",
+    name: "SAILOR",
+    image: "brands/sailor.png",
+  },
+  {
+    id: "wartsila",
+    name: "Wärtsilä",
+    image: "brands/wartsila.png",
+  },
+  {
+    id: "danelec",
+    name: "Danelec",
+    image: "brands/danelec.png",
+  },
+  {
+    id: "navis-engineering",
+    name: "NAVIS Engineering",
+    image: "brands/navis-engineering.png",
+  },
+  {
+    id: "jotron",
+    name: "Jotron",
+    image: "brands/jotron.png",
+  },
+  {
+    id: "motorola",
+    name: "Motorola",
+    image: "brands/motorola.png",
+  },
+  {
+    id: "lars-thrane",
+    name: "Lars Thrane",
+    image: "brands/lars-thrane.png",
+  },
+  {
+    id: "flir",
+    name: "FLIR",
+    image: "brands/flir.png",
+  },
 ];
 
 export const serviceCapabilities = [

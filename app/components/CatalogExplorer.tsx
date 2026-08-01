@@ -8,7 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { assetPath, brands, productGroups } from "../lib/site";
+import { assetPath, manufacturers, productGroups } from "../lib/site";
 import { ContactTrigger } from "./ContactModal";
 
 export function CatalogExplorer() {
@@ -22,15 +22,31 @@ export function CatalogExplorer() {
   const seeAllButtonRef = useRef<HTMLButtonElement>(null);
   const normalizedQuery = query.trim().toLowerCase();
 
-  const filteredBrands = useMemo(
+  const filteredProducts = useMemo(
     () =>
-      brands.filter((brand) => brand.toLowerCase().includes(normalizedQuery)),
+      productGroups.filter((product) =>
+        `${product.name} ${product.detail}`
+          .toLowerCase()
+          .includes(normalizedQuery),
+      ),
+    [normalizedQuery],
+  );
+
+  const filteredManufacturers = useMemo(
+    () =>
+      manufacturers.filter((manufacturer) =>
+        manufacturer.name.toLowerCase().includes(normalizedQuery),
+      ),
     [normalizedQuery],
   );
 
   const updateScrollControls = useCallback(() => {
     const carousel = carouselRef.current;
-    if (!carousel) return;
+    if (!carousel) {
+      setCanScrollBack(false);
+      setCanScrollForward(false);
+      return;
+    }
 
     const maximumScroll = carousel.scrollWidth - carousel.clientWidth;
     setCanScrollBack(carousel.scrollLeft > 4);
@@ -38,19 +54,25 @@ export function CatalogExplorer() {
   }, []);
 
   useEffect(() => {
-    requestAnimationFrame(updateScrollControls);
+    const frame = requestAnimationFrame(() => {
+      carouselRef.current?.scrollTo({ left: 0, behavior: "auto" });
+      updateScrollControls();
+    });
     window.addEventListener("resize", updateScrollControls);
-    return () => window.removeEventListener("resize", updateScrollControls);
-  }, [updateScrollControls, view]);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("resize", updateScrollControls);
+    };
+  }, [normalizedQuery, updateScrollControls, view]);
 
   function scrollCarousel(direction: -1 | 1) {
     const carousel = carouselRef.current;
     if (!carousel) return;
 
-    const firstCard = carousel.querySelector<HTMLElement>(
-      ".product-carousel-card",
-    );
-    const distance = (firstCard?.offsetWidth ?? carousel.clientWidth * 0.8) + 18;
+    const firstCard = carousel.querySelector<HTMLElement>("[data-carousel-card]");
+    const carouselStyle = window.getComputedStyle(carousel);
+    const gap = Number.parseFloat(carouselStyle.columnGap || carouselStyle.gap) || 0;
+    const distance = (firstCard?.offsetWidth ?? carousel.clientWidth * 0.8) + gap;
     const reducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
@@ -72,6 +94,12 @@ export function CatalogExplorer() {
     requestAnimationFrame(() => allProductsRef.current?.focus());
   }
 
+  function selectView(nextView: "products" | "brands") {
+    setView(nextView);
+    setQuery("");
+    setShowAllProducts(false);
+  }
+
   return (
     <div className="catalog-explorer">
       <div className="catalog-toolbar">
@@ -80,7 +108,7 @@ export function CatalogExplorer() {
             className={view === "products" ? "active" : ""}
             type="button"
             aria-pressed={view === "products"}
-            onClick={() => setView("products")}
+            onClick={() => selectView("products")}
           >
             Product types
           </button>
@@ -88,22 +116,33 @@ export function CatalogExplorer() {
             className={view === "brands" ? "active" : ""}
             type="button"
             aria-pressed={view === "brands"}
-            onClick={() => setView("brands")}
+            onClick={() => selectView("brands")}
           >
             Manufacturers
           </button>
         </div>
 
-        {view === "brands" ? (
-          <label className="catalog-search">
-            <span className="sr-only">Search manufacturers</span>
-            <input
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder="Search manufacturers…"
-            />
-          </label>
-        ) : null}
+        <label className="catalog-search">
+          <span className="sr-only">
+            {view === "products"
+              ? "Search product types"
+              : "Search manufacturers"}
+          </span>
+          <input
+            type="search"
+            value={query}
+            autoComplete="off"
+            onChange={(event) => {
+              setQuery(event.target.value);
+              if (view === "products") setShowAllProducts(false);
+            }}
+            placeholder={
+              view === "products"
+                ? "Search product types…"
+                : "Search manufacturers…"
+            }
+          />
+        </label>
       </div>
 
       {view === "products" ? (
@@ -133,51 +172,62 @@ export function CatalogExplorer() {
             </div>
           </div>
 
-          <div
-            className="product-carousel"
-            ref={carouselRef}
-            role="region"
-            aria-label="Product types carousel"
-            tabIndex={0}
-            onKeyDown={handleCarouselKeyDown}
-            onScroll={updateScrollControls}
-          >
-            {productGroups.map((product) => (
-              <article className="product-carousel-card" key={product.name}>
-                <div className="product-carousel-copy">
-                  <h3>{product.name}</h3>
-                  <p>{product.detail}</p>
-                  <ContactTrigger
-                    className="product-enquiry-cta"
-                    label={product.ctaLabel}
-                    source={`Products & Brands – ${product.name}`}
-                    defaultInquiry="Other"
-                    defaultMessage={`I am interested in ${product.enquirySubject}.`}
-                  />
-                </div>
-                <div className="product-carousel-image">
-                  <img
-                    src={assetPath(product.image)}
-                    alt=""
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-              </article>
-            ))}
-
-            <button
-              className="product-carousel-card product-see-all"
-              type="button"
-              ref={seeAllButtonRef}
-              aria-expanded={showAllProducts}
-              aria-controls="all-product-types"
-              onClick={revealAllProducts}
+          {filteredProducts.length ? (
+            <div
+              className="product-carousel"
+              ref={carouselRef}
+              role="region"
+              aria-label="Product types carousel"
+              tabIndex={0}
+              onKeyDown={handleCarouselKeyDown}
+              onScroll={updateScrollControls}
             >
-              <span>See all products</span>
-              <i aria-hidden="true">↓</i>
-            </button>
-          </div>
+              {filteredProducts.map((product) => (
+                <article
+                  className="product-carousel-card"
+                  data-carousel-card
+                  key={product.name}
+                >
+                  <div className="product-carousel-copy">
+                    <h3>{product.name}</h3>
+                    <p>{product.detail}</p>
+                    <ContactTrigger
+                      className="product-enquiry-cta"
+                      label={product.ctaLabel}
+                      source={`Products & Brands – ${product.name}`}
+                      defaultInquiry="Other"
+                      defaultMessage={`I am interested in ${product.enquirySubject}.`}
+                    />
+                  </div>
+                  <div className="product-carousel-image">
+                    <img
+                      src={assetPath(product.image)}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                </article>
+              ))}
+
+              {!normalizedQuery ? (
+                <button
+                  className="product-carousel-card product-see-all"
+                  data-carousel-card
+                  type="button"
+                  ref={seeAllButtonRef}
+                  aria-expanded={showAllProducts}
+                  aria-controls="all-product-types"
+                  onClick={revealAllProducts}
+                >
+                  <span>See all products</span>
+                  <i aria-hidden="true">↓</i>
+                </button>
+              ) : null}
+            </div>
+          ) : (
+            <p className="empty-result">No product types match that search.</p>
+          )}
 
           {showAllProducts ? (
             <div
@@ -215,27 +265,84 @@ export function CatalogExplorer() {
           ) : null}
         </section>
       ) : (
-        <section className="brands-view" aria-labelledby="manufacturers-title">
-          <div className="brand-highlight">
-            <h2 id="manufacturers-title">
-              National distributors: JRC · Yokogawa · Tokyo Keiki
-            </h2>
-            <p>
-              Direct access to product expertise, commissioning and lifecycle
-              support.
-            </p>
+        <section
+          className="product-carousel-section manufacturer-carousel-section"
+          aria-labelledby="manufacturers-title"
+        >
+          <div className="product-carousel-heading">
+            <div>
+              <h2 id="manufacturers-title">Manufacturers</h2>
+              <p>
+                Browse marine electronics manufacturers supplied and supported
+                by NAVTEAM.
+              </p>
+            </div>
+            <div
+              className="product-carousel-controls"
+              aria-label="Manufacturer carousel controls"
+            >
+              <button
+                type="button"
+                aria-label="Previous manufacturers"
+                disabled={!canScrollBack}
+                onClick={() => scrollCarousel(-1)}
+              >
+                ←
+              </button>
+              <button
+                type="button"
+                aria-label="Next manufacturers"
+                disabled={!canScrollForward}
+                onClick={() => scrollCarousel(1)}
+              >
+                →
+              </button>
+            </div>
           </div>
-          <div className="brand-cloud">
-            {filteredBrands.map((brand) => (
-              <span key={brand}>{brand}</span>
-            ))}
-          </div>
+
+          {filteredManufacturers.length ? (
+            <div
+              className="product-carousel manufacturer-carousel"
+              ref={carouselRef}
+              role="region"
+              aria-label="Manufacturers carousel"
+              tabIndex={0}
+              onKeyDown={handleCarouselKeyDown}
+              onScroll={updateScrollControls}
+            >
+              {filteredManufacturers.map((manufacturer) => (
+                <article
+                  className="product-carousel-card manufacturer-carousel-card"
+                  data-carousel-card
+                  key={manufacturer.id}
+                >
+                  <div className="manufacturer-card-status">
+                    {manufacturer.nationalDistributor ? (
+                      <span>National distributor</span>
+                    ) : null}
+                  </div>
+                  <div className="manufacturer-logo">
+                    <img
+                      src={assetPath(manufacturer.image)}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="manufacturer-card-footer">
+                    <h3>{manufacturer.name}</h3>
+                    <span className="manufacturer-placeholder-cta">
+                      View manufacturer <span aria-hidden="true">↗</span>
+                    </span>
+                  </div>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <p className="empty-result">No manufacturers match that search.</p>
+          )}
         </section>
       )}
-
-      {view === "brands" && filteredBrands.length === 0 ? (
-        <p className="empty-result">No manufacturers match that search.</p>
-      ) : null}
     </div>
   );
 }
