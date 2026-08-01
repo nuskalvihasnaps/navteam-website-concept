@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { PageHero } from "../components/PageHero";
 import { assetPath, stories } from "../lib/site";
 
 export const metadata: Metadata = {
@@ -11,13 +10,24 @@ export const metadata: Metadata = {
 export default function InsightsPage() {
   return (
     <>
-      <PageHero
-        title="Useful knowledge from the bridge."
-        copy="A home for technical guidance, product lifecycle notices, company news and projects that demonstrate NAVTEAM's capabilities."
-        detail="Concept articles shown for presentation purposes"
-      />
+      <section className="page-intro">
+        <h1>Insights</h1>
+        <p>
+          Technical guidance, product updates, company news and projects from
+          the world of professional marine electronics.
+        </p>
+      </section>
 
       <section className="page-section">
+        <div className="section-heading">
+          <div>
+            <h2>Useful knowledge from the bridge.</h2>
+          </div>
+          <p>
+            Practical information for shipowners, operators and technical
+            teams responsible for safe, reliable bridge systems.
+          </p>
+        </div>
         <div className="story-grid full">
           {stories.map((story, index) => (
             <article

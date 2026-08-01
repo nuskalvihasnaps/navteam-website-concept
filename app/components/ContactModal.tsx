@@ -12,7 +12,7 @@ import {
 } from "react";
 import { serviceCapabilities } from "../lib/site";
 
-type ContactOptions = {
+export type ContactOptions = {
   source: string;
   defaultInquiry?: string;
   defaultPort?: string;
@@ -178,12 +178,14 @@ export function useContactModal() {
   return context;
 }
 
-function ContactForm({
+export function ContactForm({
   options,
   closeContact,
+  staticPage = false,
 }: {
   options: ContactOptions;
-  closeContact: () => void;
+  closeContact?: () => void;
+  staticPage?: boolean;
 }) {
   const [errors, setErrors] = useState<ContactErrors>({});
 
@@ -247,22 +249,26 @@ function ContactForm({
     <>
       <div className="contact-modal-header">
         <div>
-          <h2 id="contact-modal-title">How can we help?</h2>
+          <h2 id={staticPage ? "contact-page-form-title" : "contact-modal-title"}>
+            How can we help?
+          </h2>
           <p>
             Share the essential details and we will connect you with the right
             team.
           </p>
         </div>
-        <button
-          className="contact-modal-close"
-          type="button"
-          aria-label="Close contact form"
-          onClick={closeContact}
-        >
-          <svg aria-hidden="true" viewBox="0 0 24 24">
-            <path d="M6 6l12 12M18 6L6 18" />
-          </svg>
-        </button>
+        {!staticPage ? (
+          <button
+            className="contact-modal-close"
+            type="button"
+            aria-label="Close contact form"
+            onClick={closeContact}
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        ) : null}
       </div>
 
       <form className="contact-modal-form" onSubmit={handleSubmit} noValidate>

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PageHero } from "../components/PageHero";
 
 export const metadata: Metadata = {
   title: "Careers",
@@ -26,20 +25,22 @@ const disciplines = [
 export default function CareersPage() {
   return (
     <>
-      <PageHero
-        title="Work where technology meets the sea."
-        copy="NAVTEAM brings together marine experience, technical curiosity and a practical service mindset."
-        detail="Future vacancies can be filtered by location and discipline"
-      />
+      <section className="page-intro">
+        <h1>Careers</h1>
+        <p>
+          Work where marine experience, technical curiosity and a practical
+          service mindset come together.
+        </p>
+      </section>
 
-      <section className="page-section">
+      <section className="page-section careers-content">
         <div className="section-heading">
           <div>
             <h2>Build a career around real-world systems.</h2>
           </div>
           <p>
-            The careers page can grow into a clear overview of open positions,
-            apprenticeships and life at NAVTEAM.
+            Join a hands-on team working with navigation, communication and
+            safety systems onboard commercial vessels around the world.
           </p>
         </div>
         <div className="job-grid">
@@ -53,9 +54,13 @@ export default function CareersPage() {
         </div>
       </section>
 
-      <section className="home-cta compact-cta">
+      <section className="page-section alt careers-callout">
         <div>
           <h2>Think you would fit NAVTEAM?</h2>
+          <p>
+            We welcome open applications from people with relevant marine or
+            technical experience.
+          </p>
         </div>
         <Link
           className="button primary"

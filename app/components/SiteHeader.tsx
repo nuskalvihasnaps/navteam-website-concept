@@ -6,6 +6,7 @@ import { useState } from "react";
 import { assetPath } from "../lib/site";
 
 const navigation = [
+  { href: "/", label: "Home" },
   { href: "/products", label: "Products & Brands" },
   { href: "/service", label: "Service & Support" },
   { href: "/insights", label: "Insights" },

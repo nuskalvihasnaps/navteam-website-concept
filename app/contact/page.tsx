@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PageHero } from "../components/PageHero";
+import { ContactForm } from "../components/ContactModal";
 import { offices } from "../lib/site";
 
 export const metadata: Metadata = {
@@ -12,39 +12,40 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <PageHero
-        title="Products, projects or urgent service."
-        copy="Reach the coordinating team and we will connect your vessel with the right product specialist, engineer or service partner."
-        detail="For urgent service, call +45 63 21 80 80"
-      />
+      <section className="page-intro">
+        <h1>Contact</h1>
+        <p>
+          Tell us what your vessel needs and we will connect you with the right
+          product specialist, engineer or service partner.
+        </p>
+      </section>
 
-      <section className="page-section">
-        <div className="contact-grid">
-          <article className="contact-panel primary-panel">
-            <h2>Start with NAVTEAM.</h2>
-            <Link href="mailto:navteam@navteam.com">
-              navteam@navteam.com
-            </Link>
+      <section className="page-section contact-page-section">
+        <div className="contact-page-note">
+          <p>
+            For urgent service, call{" "}
             <Link href="tel:+4563218080">+45 63 21 80 80</Link>
-          </article>
-          <article className="contact-panel">
-            <h2>Include these details.</h2>
-            <ul className="checklist">
-              <li>Vessel name and IMO number</li>
-              <li>Current or next port</li>
-              <li>Equipment brand and model</li>
-              <li>Fault description and urgency</li>
-              <li>Contact person onboard</li>
-            </ul>
-          </article>
+          </p>
+          <Link href="mailto:navteam@navteam.com">navteam@navteam.com</Link>
+        </div>
+
+        <div
+          className="contact-modal contact-page-form"
+          aria-labelledby="contact-page-form-title"
+        >
+          <ContactForm options={{ source: "Contact page" }} staticPage />
         </div>
       </section>
 
-      <section className="page-section alt">
+      <section className="page-section about-offices">
         <div className="section-heading">
           <div>
             <h2>Local presence, worldwide coordination.</h2>
           </div>
+          <p>
+            Contact NAVTEAM through our shared enquiry form and the right
+            office will coordinate the next step.
+          </p>
         </div>
         <div className="office-grid">
           {offices.map((office) => (
