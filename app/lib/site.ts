@@ -63,6 +63,14 @@ export const productGroups = [
     ctaLabel: "Ask about other equipment",
     enquirySubject: "other navigation equipment",
   },
+  {
+    id: "spare-parts",
+    name: "Spare parts",
+    detail: "Replacement components, modules, cables and installation parts.",
+    image: "products/spare-parts.png",
+    ctaLabel: "Ask about spare parts",
+    enquirySubject: "marine electronics spare parts",
+  },
 ];
 
 export type Manufacturer = {

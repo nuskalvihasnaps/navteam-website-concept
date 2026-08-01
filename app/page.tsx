@@ -55,7 +55,7 @@ export default function Home() {
       <section className="home-finder" aria-label="Browse NAVTEAM products">
         <div className="home-finder-panel home-product-finder">
           <div className="home-finder-heading">
-            <h2>Looking for a specific product?</h2>
+            <h2>Browse by product type.</h2>
             <p>Browse the main bridge systems and equipment categories.</p>
           </div>
           <div className="home-product-grid">
@@ -80,11 +80,11 @@ export default function Home() {
 
         <div className="home-finder-panel home-manufacturer-finder">
           <div className="home-finder-heading">
-            <h2>Looking for a specific manufacturer?</h2>
+            <h2>Browse by manufacturer.</h2>
             <p>Explore the manufacturers supplied and supported by NAVTEAM.</p>
           </div>
           <div className="home-manufacturer-grid">
-            {manufacturers.map((manufacturer) => (
+            {manufacturers.slice(0, 9).map((manufacturer) => (
               <Link
                 className="home-manufacturer-tile"
                 href="/products#manufacturers"
