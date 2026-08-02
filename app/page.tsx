@@ -22,20 +22,6 @@ export default function Home() {
               Service &amp; support <span aria-hidden="true">↗</span>
             </Link>
           </div>
-          <dl className="home-hero-facts">
-            <div>
-              <dt>Since</dt>
-              <dd>2001</dd>
-            </div>
-            <div>
-              <dt>NAVTEAM offices</dt>
-              <dd>Denmark · Poland · Malaysia</dd>
-            </div>
-            <div>
-              <dt>Support</dt>
-              <dd>Remote and onboard</dd>
-            </div>
-          </dl>
         </div>
         <div className="home-hero-image">
           <img
