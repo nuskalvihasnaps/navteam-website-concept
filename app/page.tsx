@@ -25,7 +25,11 @@ export default function Home() {
     <>
       <section className="home-hero">
         <div className="home-hero-copy">
-          <h1>Professional marine electronics. Practical support worldwide.</h1>
+          <h1>
+            <span>Marine electronics.</span>
+            <span>Supply. Integrate. Support.</span>
+            <span>Worldwide.</span>
+          </h1>
           <p>
             NAVTEAM supplies, integrates and services navigation,
             communication and safety equipment for commercial vessels. One

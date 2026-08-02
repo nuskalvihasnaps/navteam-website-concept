@@ -247,12 +247,43 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   padding: clamp(54px, 5vw, 82px) 0 118px;
   margin-left: var(--content-edge);
 }
+.home-hero-copy::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  right: clamp(-260px, -13vw, -140px);
+  width: clamp(430px, 42vw, 690px);
+  aspect-ratio: 1;
+  pointer-events: none;
+  opacity: .34;
+  transform: translateY(-50%) rotate(-7deg);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(215, 25, 32, .9) 0 3px, rgba(215, 25, 32, .22) 4px 9px, transparent 10px),
+    linear-gradient(27deg, transparent 0 49.75%, rgba(105, 169, 196, .28) 49.9% 50.1%, transparent 50.25%),
+    linear-gradient(74deg, transparent 0 49.75%, rgba(105, 169, 196, .2) 49.9% 50.1%, transparent 50.25%),
+    repeating-radial-gradient(circle at 50% 50%, transparent 0 56px, rgba(105, 169, 196, .22) 58px 60px, transparent 62px 92px);
+  -webkit-mask-image: linear-gradient(90deg, transparent 3%, #000 42%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 3%, #000 42%, #000 100%);
+}
+.home-hero-copy > * {
+  position: relative;
+  z-index: 1;
+}
 .home-hero-copy h1 {
   max-width: 780px;
   margin-bottom: 26px;
   font-size: clamp(52px, 5vw, 82px);
   line-height: .98;
   letter-spacing: -.055em;
+}
+.home-hero-copy h1 span { display: block; }
+.home-hero-copy h1 span:nth-child(2) {
+  margin: .18em 0 .12em;
+  color: rgba(255, 255, 255, .8);
+  font-size: .68em;
+  letter-spacing: -.035em;
+  line-height: 1.05;
 }
 .home-hero-copy > p {
   max-width: 680px;
