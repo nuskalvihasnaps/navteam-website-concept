@@ -1132,6 +1132,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   min-height: calc(100svh - var(--header-height));
   display: grid;
   grid-template-columns: minmax(350px, 31vw) minmax(0, 1fr);
+  margin-inline: var(--content-edge);
   color: var(--white);
   background: var(--surface-alt);
 }
@@ -2018,7 +2019,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   .service-map-hero { display: block; }
   .service-map-sidebar {
     min-height: auto;
-    padding: 50px var(--content-edge);
+    padding: 50px var(--sidebar-inset);
     box-shadow: none;
   }
   .service-capability-list > button { min-height: 48px; padding: 11px 0; }
@@ -2028,8 +2029,8 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
     padding: 80px 0 78px;
   }
   .service-map-graphic { width: 104%; }
-  .service-map-heading { top: 25px; left: var(--content-edge); }
-  .service-map-legend { left: var(--content-edge); right: var(--content-edge); bottom: 20px; }
+  .service-map-heading { top: 25px; left: var(--sidebar-inset); }
+  .service-map-legend { left: var(--sidebar-inset); right: var(--sidebar-inset); bottom: 20px; }
   .service-details {
     height: auto;
     min-height: 0;
@@ -2176,7 +2177,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   .site-footer { grid-template-columns: 1fr; }
   .footer-links { justify-content: flex-start; }
   .footer-meta { grid-column: auto; }
-  .service-map-sidebar { padding: 48px var(--content-edge); }
+  .service-map-sidebar { padding: 48px var(--sidebar-inset); }
   .service-map-stage { min-height: 500px; padding-top: 88px; }
   .service-map-graphic { width: 112%; }
   .service-map-heading strong { font-size: 23px; }

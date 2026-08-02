@@ -11,7 +11,7 @@ export function SiteFooter() {
         <Link href="/products">Products</Link>
         <Link href="/service">Service & Support</Link>
         <Link href="/about">About</Link>
-        <Link href="/careers">Job</Link>
+        <Link href="/job">Job</Link>
         <Link href="/contact">Contact</Link>
       </div>
       <div className="footer-meta">

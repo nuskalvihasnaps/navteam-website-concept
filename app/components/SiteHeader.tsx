@@ -11,7 +11,7 @@ const navigation = [
   { href: "/service", label: "Service & Support" },
   { href: "/insights", label: "Insights" },
   { href: "/about", label: "About" },
-  { href: "/careers", label: "Job" },
+  { href: "/job", label: "Job" },
 ];
 
 export function SiteHeader() {
