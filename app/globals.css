@@ -699,12 +699,6 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 }
 .page-hero.compact .page-hero-copy > span { padding-top: 12px; }
 
-.products-opening {
-  min-height: calc(100svh - var(--header-height));
-  background:
-    radial-gradient(circle at 86% 8%, rgba(105, 169, 196, .18), transparent 30%),
-    linear-gradient(180deg, var(--white), var(--surface-blue));
-}
 .page-intro {
   position: relative;
   isolation: isolate;
@@ -769,8 +763,10 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 }
 .products-catalogue {
   overflow: hidden;
-  padding: clamp(20px, 2.8vh, 28px) var(--content-edge) clamp(24px, 3vh, 32px);
-  background: transparent;
+  padding: clamp(44px, 5vw, 72px) var(--content-edge) var(--section-space);
+  background:
+    radial-gradient(circle at 86% 8%, rgba(105, 169, 196, .18), transparent 30%),
+    linear-gradient(180deg, var(--white), var(--surface-blue));
 }
 .catalog-explorer { width: 100%; }
 .catalog-toolbar {
@@ -865,8 +861,8 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 }
 .product-carousel-card {
   min-width: max(290px, calc((100% - (3 * var(--grid-gap))) / 3.45));
-  min-height: 255px;
-  height: clamp(255px, calc(100svh - 500px), 320px);
+  min-height: 320px;
+  height: clamp(320px, 24vw, 360px);
   display: grid;
   grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
   gap: 8px;
@@ -2093,7 +2089,6 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
     --sidebar-inset: 28px;
   }
   .site-header { min-height: var(--header-height); }
-  .products-opening { min-height: calc(100svh - var(--header-height)); }
   .header-brand { width: clamp(200px, 30vw, 245px); }
   .menu-button {
     width: 46px;
@@ -2235,7 +2230,6 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
     border-bottom: 1px solid rgba(255,255,255,.12);
   }
   .section, .page-section { padding: var(--section-space) var(--content-edge); }
-  .products-opening { min-height: 0; }
   .page-intro {
     min-height: 0;
     padding: 48px var(--content-edge) 32px;
@@ -2396,14 +2390,6 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
     padding-bottom: 18px;
   }
   .page-intro h1 { font-size: 54px; }
-  .products-catalogue { padding-top: 16px; padding-bottom: 20px; }
-  .catalog-toolbar { margin-bottom: 12px; }
-  .product-carousel-heading { margin-bottom: 10px; }
-  .product-carousel-heading h2 { font-size: 34px; }
-  .product-carousel-card {
-    min-height: 248px;
-    height: clamp(248px, calc(100svh - 486px), 280px);
-  }
   .service-map-sidebar { padding-top: 22px; padding-bottom: 22px; }
   .service-capability-list { margin-bottom: 12px; }
   .service-capability-list > button { min-height: 35px; padding: 6px 0; }
