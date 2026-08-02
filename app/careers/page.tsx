@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { assetPath, CONTACT_EMAIL } from "../lib/site";
+import { CONTACT_EMAIL } from "../lib/site";
 
 export const metadata: Metadata = {
-  title: "Careers",
+  title: "Job",
   description:
-    "Explore careers in professional marine electronics at NAVTEAM.",
+    "Explore job opportunities in professional marine electronics at NAVTEAM.",
 };
 
 const disciplines = [
@@ -23,23 +23,15 @@ const disciplines = [
   },
 ];
 
-export default function CareersPage() {
+export default function JobPage() {
   return (
     <>
-      <section className="page-intro careers-intro">
-        <div className="careers-intro-copy">
-          <h1>Careers</h1>
-          <p>
-            Work where marine experience, technical curiosity and a practical
-            service mindset come together.
-          </p>
-        </div>
-        <div className="careers-intro-image">
-          <img
-            src={assetPath("service-engineer.png")}
-            alt="NAVTEAM engineer working onboard a vessel"
-          />
-        </div>
+      <section className="page-intro">
+        <h1>Job</h1>
+        <p>
+          Work where marine experience, technical curiosity and a practical
+          service mindset come together.
+        </p>
       </section>
 
       <section className="page-section careers-content">

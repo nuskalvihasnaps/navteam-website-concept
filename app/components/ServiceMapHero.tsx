@@ -165,16 +165,8 @@ export function ServiceMapHero() {
 
   return (
     <>
-      <section className="service-map-hero" aria-labelledby="service-map-title">
+      <section className="service-map-hero" aria-labelledby="service-page-title">
         <aside className="service-map-sidebar">
-          <div className="service-map-intro">
-            <h1 id="service-map-title">Service &amp; Support</h1>
-            <p>
-              Remote and onboard assistance, coordinated 24/7 through NAVTEAM
-              offices and trusted partners in ports all over the globe.
-            </p>
-          </div>
-
           <div
             className="service-capability-list"
             aria-label="Service capabilities"
