@@ -3,11 +3,27 @@ import Link from "next/link";
 export function SiteFooter() {
   return (
     <footer className="site-footer">
-      <Link className="brand" href="/">
+      <Link className="footer-wordmark" href="/">
         <strong>NAVTEAM</strong>
         <span>Professional Marine Electronics</span>
       </Link>
+
+      <section className="footer-approved" aria-labelledby="footer-approved-title">
+        <h2 id="footer-approved-title">Approved by</h2>
+        <ul>
+          <li>Lloyd&apos;s Register</li>
+          <li>ABS</li>
+          <li>ClassNK</li>
+          <li>Bureau Veritas</li>
+          <li>DNV GL</li>
+          <li>RINA</li>
+          <li>Danish Maritime Authority</li>
+          <li>Maritime &amp; Coastguard Agency</li>
+        </ul>
+      </section>
+
       <div className="footer-links">
+        <h2>Explore</h2>
         <Link href="/products">Products</Link>
         <Link href="/service">Service & Support</Link>
         <Link href="/about">About</Link>
