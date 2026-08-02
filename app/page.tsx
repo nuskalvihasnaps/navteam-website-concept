@@ -32,9 +32,8 @@ export default function Home() {
           </h1>
           <p>
             NAVTEAM supplies, integrates and services navigation,
-            communication and safety equipment for commercial vessels. One
-            experienced team coordinates the right products and people from
-            bridge to port.
+            communication and safety equipment for commercial vessels. Our
+            experienced team coordinates the right products and technicians.
           </p>
           <div className="home-hero-actions">
             <Link className="button primary" href="/products">
