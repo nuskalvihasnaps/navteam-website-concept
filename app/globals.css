@@ -301,9 +301,9 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 .home-hero-image > div {
   position: absolute;
   z-index: 1;
-  right: clamp(28px, 4vw, 62px);
+  right: var(--content-edge);
   bottom: clamp(26px, 4vw, 54px);
-  left: clamp(28px, 4vw, 62px);
+  left: var(--content-edge);
   display: flex;
   justify-content: space-between;
   gap: 24px;
