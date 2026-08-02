@@ -22,9 +22,10 @@ export const metadata: Metadata = {
     url: siteUrl,
     images: [
       {
-        url: `${siteUrl}og.png`,
-        width: 1792,
-        height: 1024,
+        url: `${siteUrl}og-navteam-2026.png`,
+        width: 1200,
+        height: 630,
+        alt: "NAVTEAM professional marine electronics and worldwide support",
       },
     ],
   },
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: [`${siteUrl}og.png`],
+    images: [`${siteUrl}og-navteam-2026.png`],
   },
 };
 
