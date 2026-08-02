@@ -705,14 +705,11 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
     radial-gradient(circle at 86% 8%, rgba(105, 169, 196, .18), transparent 30%),
     linear-gradient(180deg, var(--white), var(--surface-blue));
 }
-.products-intro, .about-intro, .page-intro {
+.page-intro {
   position: relative;
   isolation: isolate;
   overflow: hidden;
   min-height: clamp(180px, 22vh, 208px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: clamp(28px, 4vh, 42px) var(--content-edge) clamp(20px, 3vh, 30px);
   background:
     radial-gradient(circle at 88% 12%, rgba(105, 169, 196, .18), transparent 28%),
@@ -720,8 +717,6 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   border-bottom: 1px solid var(--line);
   box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .8);
 }
-.products-intro::before,
-.about-intro::before,
 .page-intro::before {
   content: "";
   position: absolute;
@@ -739,8 +734,6 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   transform: rotate(-2deg);
   transform-origin: 100% 100%;
 }
-.products-intro::after,
-.about-intro::after,
 .page-intro::after {
   content: "";
   position: absolute;
@@ -756,7 +749,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
     rgba(11, 111, 153, .08) 100%
   );
 }
-.products-intro h1, .about-intro h1, .page-intro h1 {
+.page-intro h1 {
   position: relative;
   z-index: 3;
   margin: 0 0 8px;
@@ -765,7 +758,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   line-height: .98;
   letter-spacing: -.055em;
 }
-.products-intro p, .about-intro p, .page-intro p {
+.page-intro p {
   position: relative;
   z-index: 3;
   max-width: 650px;
@@ -2243,11 +2236,11 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   }
   .section, .page-section { padding: var(--section-space) var(--content-edge); }
   .products-opening { min-height: 0; }
-  .products-intro, .about-intro, .page-intro {
+  .page-intro {
     min-height: 0;
     padding: 48px var(--content-edge) 32px;
   }
-  .products-intro h1, .about-intro h1, .page-intro h1 { font-size: var(--page-title); }
+  .page-intro h1 { font-size: var(--page-title); }
   .products-catalogue { padding: 36px var(--content-edge) var(--section-space); }
   .section-heading, .page-hero, .home-cta, .distributor-banner, .split-layout,
   .home-service, .service-page-layout, .contact-grid, .careers-callout {
@@ -2284,8 +2277,6 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
     grid-row: auto;
   }
   .insights-story-grid .story-support { min-height: 260px; }
-  .products-intro::before,
-  .about-intro::before,
   .page-intro::before {
     right: -100px;
     bottom: -80px;
@@ -2399,12 +2390,12 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 }
 
 @media (max-height: 760px) and (min-width: 821px) {
-  .products-intro, .about-intro, .page-intro {
+  .page-intro {
     min-height: 180px;
     padding-top: 22px;
     padding-bottom: 18px;
   }
-  .products-intro h1, .about-intro h1, .page-intro h1 { font-size: 54px; }
+  .page-intro h1 { font-size: 54px; }
   .products-catalogue { padding-top: 16px; padding-bottom: 20px; }
   .catalog-toolbar { margin-bottom: 12px; }
   .product-carousel-heading { margin-bottom: 10px; }

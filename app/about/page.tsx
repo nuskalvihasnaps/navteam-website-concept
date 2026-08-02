@@ -39,7 +39,7 @@ export default function AboutPage() {
   return (
     <>
       <div className="about-opening">
-        <section className="page-intro about-intro">
+        <section className="page-intro">
           <h1>About NAVTEAM</h1>
           <p>
             A marine electronics knowledge centre and system integrator built

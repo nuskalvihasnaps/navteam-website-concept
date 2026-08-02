@@ -44,5 +44,5 @@ test("uses the shared subpage introduction on every standard subpage", async () 
   }
 
   const products = await readRoute("products");
-  assert.match(products, /class="page-intro products-intro"/);
+  assert.match(products, /<section class="page-intro"><h1>Products<\/h1>/);
 });
