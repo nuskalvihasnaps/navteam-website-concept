@@ -2037,16 +2037,14 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 }
 .footer-wordmark-title strong { font-weight: 800; }
 .footer-wordmark-subtitle {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
+  display: block;
   margin-top: 18px;
   color: rgba(255, 255, 255, .82);
-  font-size: clamp(13px, 1.25vw, 21px);
+  font-size: clamp(19px, 1.78vw, 32px);
   font-weight: 800;
-  letter-spacing: .015em;
+  letter-spacing: -.015em;
   line-height: 1;
+  white-space: nowrap;
 }
 .footer-approved { grid-area: approved; }
 .footer-approved h2,
@@ -2354,7 +2352,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
     transform: translate(-55%, 48%) rotate(-8deg);
   }
   .footer-wordmark-title { font-size: clamp(62px, 18vw, 84px); }
-  .footer-wordmark-subtitle { font-size: clamp(11px, 3.1vw, 14px); }
+  .footer-wordmark-subtitle { font-size: clamp(18px, 4.3vw, 24px); }
   .footer-meta { flex-direction: column; }
   .service-map-sidebar { padding: 48px var(--sidebar-inset); }
   .service-map-stage { min-height: 500px; padding-top: 88px; }

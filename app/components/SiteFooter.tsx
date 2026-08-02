@@ -8,9 +8,7 @@ export function SiteFooter() {
           <strong>NAV</strong>TEAM
         </span>
         <span className="footer-wordmark-subtitle">
-          <span>Professional</span>
-          <span>Marine</span>
-          <span>Electronics</span>
+          Professional Marine Electronics
         </span>
       </Link>
 
