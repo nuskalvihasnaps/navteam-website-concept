@@ -1129,9 +1129,10 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 }
 
 .service-map-hero {
-  min-height: calc(100svh - var(--header-height));
+  height: clamp(650px, calc(100svh - var(--header-height)), 780px);
+  min-height: 0;
   display: grid;
-  grid-template-columns: minmax(350px, 31vw) minmax(0, 1fr);
+  grid-template-columns: minmax(330px, 25vw) minmax(0, 1fr);
   margin-inline: var(--content-edge);
   color: var(--white);
   background: var(--surface-alt);
@@ -1139,7 +1140,8 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 .service-map-sidebar {
   position: relative;
   z-index: 2;
-  min-height: calc(100svh - var(--header-height));
+  height: 100%;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   padding: clamp(28px, 4vh, 48px) var(--sidebar-inset);
@@ -1225,7 +1227,8 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 .service-map-stage {
   position: relative;
   min-width: 0;
-  min-height: calc(100svh - var(--header-height));
+  height: 100%;
+  min-height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1253,7 +1256,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 }
 .service-map-graphic {
   position: relative;
-  width: min(104%, calc((100svh - var(--header-height)) * 1.999));
+  width: min(112%, calc((100svh - var(--header-height)) * 1.999));
   flex: none;
   aspect-ratio: 1773 / 887;
 }
@@ -1996,10 +1999,10 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   .site-footer { grid-template-columns: 1fr 1fr; }
   .footer-links { justify-content: flex-end; }
   .footer-meta { grid-column: 1 / -1; align-items: flex-start; }
-  .service-map-hero { grid-template-columns: minmax(330px, 38vw) minmax(0, 1fr); }
+  .service-map-hero { grid-template-columns: minmax(310px, 34vw) minmax(0, 1fr); }
   .service-map-sidebar { padding-right: var(--sidebar-inset); padding-left: var(--sidebar-inset); }
   .service-map-graphic {
-    width: min(104%, calc((100svh - var(--header-height)) * 1.999));
+    width: min(112%, calc((100svh - var(--header-height)) * 1.999));
   }
 }
 
@@ -2016,7 +2019,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   }
   .about-pillar-grid { grid-template-columns: 1fr; }
   .about-pillar-card { min-height: 0; }
-  .service-map-hero { display: block; }
+  .service-map-hero { height: auto; display: block; }
   .service-map-sidebar {
     min-height: auto;
     padding: 50px var(--sidebar-inset);
