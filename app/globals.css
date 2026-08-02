@@ -703,7 +703,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  min-height: clamp(180px, 22vh, 208px);
+  min-height: 220px;
   padding: clamp(28px, 4vh, 42px) var(--content-edge) clamp(20px, 3vh, 30px);
   background:
     radial-gradient(circle at 88% 12%, rgba(105, 169, 196, .18), transparent 28%),
