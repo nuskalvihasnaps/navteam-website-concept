@@ -1129,7 +1129,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 }
 
 .service-map-hero {
-  height: clamp(650px, calc(100svh - var(--header-height)), 780px);
+  height: clamp(520px, calc(80svh - 70px), 624px);
   min-height: 0;
   display: grid;
   grid-template-columns: minmax(330px, 25vw) minmax(0, 1fr);
@@ -1144,7 +1144,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   min-height: 0;
   display: flex;
   flex-direction: column;
-  padding: clamp(28px, 4vh, 48px) var(--sidebar-inset);
+  padding: clamp(20px, 2.5vh, 28px) var(--sidebar-inset);
   color: var(--ink);
   background:
     radial-gradient(circle at 15% 0%, rgba(105, 169, 196, .14), transparent 30%),
@@ -1152,17 +1152,17 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   box-shadow: 16px 0 34px rgba(11, 13, 15, .09);
 }
 .service-capability-list {
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   border-top: 1px solid var(--line);
 }
 .service-capability-list > button {
   width: 100%;
-  min-height: 46px;
+  min-height: 38px;
   display: grid;
   grid-template-columns: 34px 1fr 18px;
   gap: 9px;
   align-items: center;
-  padding: clamp(9px, 1.1vh, 12px) 0;
+  padding: clamp(6px, .7vh, 8px) 0;
   color: var(--ink);
   text-align: left;
   border-bottom: 1px solid var(--line);
@@ -1203,7 +1203,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   opacity: .65;
 }
 .service-map-cta {
-  min-height: 56px;
+  min-height: 52px;
   display: flex;
   align-items: center;
   justify-content: space-between;
