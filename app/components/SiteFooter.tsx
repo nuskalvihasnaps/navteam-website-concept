@@ -4,8 +4,14 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <Link className="footer-wordmark" href="/">
-        <strong>NAVTEAM</strong>
-        <span>Professional Marine Electronics</span>
+        <span className="footer-wordmark-title">
+          <strong>NAV</strong>TEAM
+        </span>
+        <span className="footer-wordmark-subtitle">
+          <span>Professional</span>
+          <span>Marine</span>
+          <span>Electronics</span>
+        </span>
       </Link>
 
       <section className="footer-approved" aria-labelledby="footer-approved-title">
