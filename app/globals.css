@@ -709,6 +709,10 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  min-height: clamp(180px, 22vh, 208px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: clamp(28px, 4vh, 42px) var(--content-edge) clamp(20px, 3vh, 30px);
   background:
     radial-gradient(circle at 88% 12%, rgba(105, 169, 196, .18), transparent 28%),
@@ -2239,7 +2243,10 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   }
   .section, .page-section { padding: var(--section-space) var(--content-edge); }
   .products-opening { min-height: 0; }
-  .products-intro, .about-intro, .page-intro { padding: 48px var(--content-edge) 32px; }
+  .products-intro, .about-intro, .page-intro {
+    min-height: 0;
+    padding: 48px var(--content-edge) 32px;
+  }
   .products-intro h1, .about-intro h1, .page-intro h1 { font-size: var(--page-title); }
   .products-catalogue { padding: 36px var(--content-edge) var(--section-space); }
   .section-heading, .page-hero, .home-cta, .distributor-banner, .split-layout,
@@ -2392,7 +2399,11 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 }
 
 @media (max-height: 760px) and (min-width: 821px) {
-  .products-intro, .about-intro, .page-intro { padding-top: 22px; padding-bottom: 18px; }
+  .products-intro, .about-intro, .page-intro {
+    min-height: 180px;
+    padding-top: 22px;
+    padding-bottom: 18px;
+  }
   .products-intro h1, .about-intro h1, .page-intro h1 { font-size: 54px; }
   .products-catalogue { padding-top: 16px; padding-bottom: 20px; }
   .catalog-toolbar { margin-bottom: 12px; }

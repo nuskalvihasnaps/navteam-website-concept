@@ -36,7 +36,7 @@ export function SiteFooter() {
       </div>
       <div className="footer-meta">
         <span>Svendborg · Gdansk · Tanjung Pelepas</span>
-        <span>Concept website · English first</span>
+        <span>Professional Marine Electronics</span>
       </div>
     </footer>
   );

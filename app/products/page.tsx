@@ -12,7 +12,7 @@ export default function ProductsPage() {
   return (
     <>
       <div className="products-opening">
-        <section className="products-intro">
+        <section className="page-intro products-intro">
           <h1>Products</h1>
           <p>
             Explore professional marine electronics by product type or
