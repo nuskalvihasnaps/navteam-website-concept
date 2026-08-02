@@ -1234,6 +1234,33 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   justify-content: center;
   overflow: hidden;
   background: #071e35;
+  box-shadow:
+    inset 0 18px 42px rgba(0, 8, 18, .28),
+    inset 0 -22px 48px rgba(0, 8, 18, .34);
+}
+.service-map-stage::before,
+.service-map-stage::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+}
+.service-map-stage::before {
+  background:
+    radial-gradient(ellipse at 54% 48%, rgba(105, 169, 196, .17), rgba(11, 111, 153, .045) 42%, transparent 68%),
+    radial-gradient(circle at 78% 38%, rgba(41, 133, 172, .12), transparent 32%),
+    linear-gradient(180deg, rgba(0, 9, 20, .24), transparent 22% 74%, rgba(0, 8, 18, .32));
+  animation: map-ambient-shift 9s ease-in-out infinite alternate;
+}
+.service-map-stage::after {
+  opacity: .42;
+  background-image:
+    linear-gradient(rgba(105, 169, 196, .08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(105, 169, 196, .055) 1px, transparent 1px);
+  background-size: 100% 20%, 12.5% 100%;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 12%, transparent 78%);
+  mask-image: radial-gradient(ellipse at center, #000 12%, transparent 78%);
 }
 .service-map-heading {
   position: absolute;
@@ -1264,6 +1291,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   width: 100%;
   height: 100%;
   object-fit: contain;
+  filter: saturate(1.12) contrast(1.09) brightness(1.04);
 }
 .coverage-marker-wrap {
   position: absolute;
@@ -1528,6 +1556,10 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
   line-height: 1.4;
 }
 
+@keyframes map-ambient-shift {
+  from { opacity: .72; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.025); }
+}
 @keyframes marker-pulse {
   0% { transform: scale(.65); opacity: .5; }
   75%, 100% { transform: scale(1.6); opacity: 0; }
@@ -2210,6 +2242,7 @@ nav a:hover, nav a:focus-visible, nav a.active { color: var(--blue); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+  .service-map-stage::before,
   .marker-pulse { animation: none; }
   .contact-modal-backdrop,
   .contact-modal { animation: none; }
