@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { offices } from "../lib/site";
+import { assetPath, offices } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "About NAVTEAM",
@@ -74,6 +74,12 @@ export default function AboutPage() {
       </div>
 
       <section className="page-section alt about-offices">
+        <img
+          className="office-section-map"
+          src={assetPath("world-map-clean.png")}
+          alt=""
+          aria-hidden="true"
+        />
         <div className="section-heading">
           <div>
             <h2>Three offices. One coordinating team.</h2>

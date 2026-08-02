@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { assetPath, CONTACT_EMAIL } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Careers",
@@ -25,12 +26,20 @@ const disciplines = [
 export default function CareersPage() {
   return (
     <>
-      <section className="page-intro">
-        <h1>Careers</h1>
-        <p>
-          Work where marine experience, technical curiosity and a practical
-          service mindset come together.
-        </p>
+      <section className="page-intro careers-intro">
+        <div className="careers-intro-copy">
+          <h1>Careers</h1>
+          <p>
+            Work where marine experience, technical curiosity and a practical
+            service mindset come together.
+          </p>
+        </div>
+        <div className="careers-intro-image">
+          <img
+            src={assetPath("service-engineer.png")}
+            alt="NAVTEAM engineer working onboard a vessel"
+          />
+        </div>
       </section>
 
       <section className="page-section careers-content">
@@ -64,7 +73,7 @@ export default function CareersPage() {
         </div>
         <Link
           className="button primary"
-          href="mailto:navteam@navteam.com?subject=Open application"
+          href={`mailto:${CONTACT_EMAIL}?subject=Open application`}
         >
           Send an application
         </Link>

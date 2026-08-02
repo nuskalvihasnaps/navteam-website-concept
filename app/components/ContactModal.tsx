@@ -10,7 +10,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { serviceCapabilities } from "../lib/site";
+import { CONTACT_EMAIL, serviceCapabilities } from "../lib/site";
 
 export type ContactOptions = {
   source: string;
@@ -239,7 +239,7 @@ export function ContactForm({
       .filter((line): line is string => line !== null)
       .join("\n");
 
-    const mailto = `mailto:navteam@navteam.com?subject=${encodeURIComponent(
+    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
       `Website enquiry – ${enquiry}`,
     )}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;

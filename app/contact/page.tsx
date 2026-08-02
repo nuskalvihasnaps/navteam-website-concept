@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactForm } from "../components/ContactModal";
-import { offices } from "../lib/site";
+import { assetPath, CONTACT_EMAIL, offices } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -26,7 +26,7 @@ export default function ContactPage() {
             For urgent service, call{" "}
             <Link href="tel:+4563218080">+45 63 21 80 80</Link>
           </p>
-          <Link href="mailto:navteam@navteam.com">navteam@navteam.com</Link>
+          <Link href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</Link>
         </div>
 
         <div
@@ -37,7 +37,13 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="page-section about-offices">
+      <section className="page-section about-offices contact-offices">
+        <img
+          className="office-section-map"
+          src={assetPath("world-map-clean.png")}
+          alt=""
+          aria-hidden="true"
+        />
         <div className="section-heading">
           <div>
             <h2>Local presence, worldwide coordination.</h2>
@@ -53,7 +59,7 @@ export default function ContactPage() {
               <span>{office.region}</span>
               <h3>{office.city}</h3>
               <p>{office.country}</p>
-              <Link href="mailto:navteam@navteam.com">Contact office ↗</Link>
+              <Link href={`mailto:${CONTACT_EMAIL}`}>Contact office ↗</Link>
             </article>
           ))}
         </div>

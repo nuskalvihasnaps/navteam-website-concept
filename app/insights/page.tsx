@@ -18,7 +18,7 @@ export default function InsightsPage() {
         </p>
       </section>
 
-      <section className="page-section">
+      <section className="page-section insights-content">
         <div className="section-heading">
           <div>
             <h2>Useful knowledge from the bridge.</h2>
@@ -28,10 +28,14 @@ export default function InsightsPage() {
             teams responsible for safe, reliable bridge systems.
           </p>
         </div>
-        <div className="story-grid full">
+        <div className="story-grid full insights-story-grid">
           {stories.map((story, index) => (
             <article
-              className={index === 0 ? "story story-image" : "story"}
+              className={
+                index === 0
+                  ? "story story-image story-featured"
+                  : "story story-support"
+              }
               key={story.title}
             >
               {index === 0 ? (

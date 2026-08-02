@@ -1,3 +1,5 @@
+export const CONTACT_EMAIL = "service@navteam.com";
+
 export const productGroups = [
   {
     id: "radar",

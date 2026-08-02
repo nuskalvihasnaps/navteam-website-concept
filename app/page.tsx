@@ -1,6 +1,24 @@
 import Link from "next/link";
 import { ContactForm } from "./components/ContactModal";
-import { assetPath, manufacturers, productGroups } from "./lib/site";
+import {
+  assetPath,
+  CONTACT_EMAIL,
+  manufacturers,
+  productGroups,
+} from "./lib/site";
+
+const homepageProductIds = new Set([
+  "radar",
+  "gmdss",
+  "heading-devices",
+  "ecdis",
+  "gps-ais",
+  "spare-parts",
+]);
+
+const homepageProducts = productGroups.filter((product) =>
+  homepageProductIds.has(product.id),
+);
 
 export default function Home() {
   return (
@@ -45,7 +63,7 @@ export default function Home() {
             <p>Browse the main bridge systems and equipment categories.</p>
           </div>
           <div className="home-product-grid">
-            {productGroups.map((product) => (
+            {homepageProducts.map((product) => (
               <Link
                 className="home-product-tile"
                 data-product-id={product.id}
@@ -70,7 +88,7 @@ export default function Home() {
             <p>Explore the manufacturers supplied and supported by NAVTEAM.</p>
           </div>
           <div className="home-manufacturer-grid">
-            {manufacturers.slice(0, 9).map((manufacturer) => (
+            {manufacturers.slice(0, 6).map((manufacturer) => (
               <Link
                 className="home-manufacturer-tile"
                 href="/products#manufacturers"
@@ -103,8 +121,8 @@ export default function Home() {
             <div className="home-contact-details">
               <span>Urgent service</span>
               <Link href="tel:+4563218080">+45 63 21 80 80</Link>
-              <Link href="mailto:navteam@navteam.com">
-                navteam@navteam.com
+              <Link href={`mailto:${CONTACT_EMAIL}`}>
+                {CONTACT_EMAIL}
               </Link>
             </div>
           </div>
